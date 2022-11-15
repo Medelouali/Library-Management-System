@@ -19,11 +19,13 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>19-ea+7</version>
+
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>19-ea+7</version>
+
         </dependency>
 
         <dependency>
@@ -68,6 +70,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.example.libraryapp/com.example.libraryapp.HelloApplication</mainClass>
+
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
