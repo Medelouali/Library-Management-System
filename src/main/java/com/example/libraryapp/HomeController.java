@@ -168,7 +168,7 @@ public class HomeController {
     }
 
     public void switchPage(ActionEvent event, String pageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(pageName));
+        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource(pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
