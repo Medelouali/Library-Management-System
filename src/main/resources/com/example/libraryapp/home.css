@@ -1,0 +1,11 @@
+.root{
+    -fx-background-color: #f0f8ff;
+}
+.button{
+    -fx-text-fill: #b3cee5;
+    -fx-background-color: #191970;
+}
+
+#vBoxBodyId{
+    -fx-background-color: white;
+}
