@@ -13,7 +13,7 @@ public class LmsApplication extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource("welcome-page-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Our Amazing App");
+        stage.setTitle("Our Amazing App...");
         stage.setScene(scene);
         stage.setWidth(700);
         stage.setHeight(550);
