@@ -10,7 +10,8 @@ import java.io.IOException;
 public class LmsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource("home-view.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource("welcome-page-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Our Amazing App");
         stage.setScene(scene);

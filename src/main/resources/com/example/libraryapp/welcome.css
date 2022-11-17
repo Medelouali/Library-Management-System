@@ -1,0 +1,17 @@
+.button{
+    -fx-text-fill: #b3cee5;
+    -fx-background-color: #191970;
+    -fx-font-size: 15px;
+    -fx-font-weight:bold;
+}
+
+.label
+{
+    -fx-text-fill: #191970;
+}
+
+.hyperlink
+{
+     -fx-text-fill: #191970;
+     -fx-underline: true;
+}
