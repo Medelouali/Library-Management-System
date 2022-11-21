@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="500.0" prefWidth="700.0" spacing="20.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.HomeController">
+<VBox prefHeight="500.0" prefWidth="700.0" spacing="20.0" stylesheets="@../styles/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.HomeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -75,7 +75,7 @@
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="466.0">
                                         <children>
-                                            <Text fx:id="browserId" layoutX="45.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics Browser Area" />
+                                            <Text fx:id="browserId" layoutX="45.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout Browser Area" />
                                         </children>
                                     </AnchorPane>
                                 </content>

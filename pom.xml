@@ -47,6 +47,7 @@
             <version>8.0.31</version>
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -69,7 +70,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.libraryapp/com.example.libraryapp.LmsApplication</mainClass>
+                            <mainClass>com.example.libraryapp/com.example.libraryapp.Main</mainClass>
 
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -8,12 +8,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="registerPageID" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.RegisterPageController">
+<AnchorPane fx:id="registerPageID" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.RegisterPageController">
    <children>
       <Label layoutX="276.0" layoutY="27.0" prefHeight="59.0" prefWidth="148.0" style="-fx-alignment: center; -fx-font-size: 38;" text="Register" />
       <ImageView fitHeight="130.0" fitWidth="192.0" layoutX="254.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/librarian.jpg" />
+            <Image url="@../assets/librarian.jpg" />
          </image>
       </ImageView>
       <TextField layoutX="165.0" layoutY="244.0" prefHeight="30.0" prefWidth="370.0" promptText="Username" />

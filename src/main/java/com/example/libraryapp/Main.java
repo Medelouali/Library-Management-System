@@ -7,11 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LmsApplication extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource("welcome-page-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/welcome-page-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Our Amazing App...");
         stage.setScene(scene);
@@ -21,6 +21,7 @@ public class LmsApplication extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 }

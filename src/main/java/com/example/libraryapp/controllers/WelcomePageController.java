@@ -1,5 +1,6 @@
-package com.example.libraryapp;
+package com.example.libraryapp.controllers;
 
+import com.example.libraryapp.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,7 +56,7 @@ public class WelcomePageController {
     }
 
     public void switchPage(ActionEvent event, String pageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource(pageName));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -1,5 +1,9 @@
-package com.example.libraryapp;
+package com.example.libraryapp.controllers;
 
+import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.Dao;
+import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class HomeController {
     private Stage stage;
@@ -63,6 +68,12 @@ public class HomeController {
     void onAddCopies(ActionEvent event) {
         try{
             this.switchPage(event, "add-copies-view.fxml");
+            // testing db
+            Student std=new Student(10, "Med", "test@gmail.com",
+                    "hackme", "Y123478", new Date(1, 1, 1),
+                    "descriotion about...", 20, "USER", false);
+            Dao<Student> studentDao=new StudentDao();
+            studentDao.save(std);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -168,7 +179,7 @@ public class HomeController {
     }
 
     public void switchPage(ActionEvent event, String pageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LmsApplication.class.getResource(pageName));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
