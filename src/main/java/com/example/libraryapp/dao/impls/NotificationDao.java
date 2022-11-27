@@ -1,16 +1,17 @@
 package com.example.libraryapp.dao.impls;
 
+import com.example.libraryapp.dao.Dao;
+import com.example.libraryapp.dao.db.ConnectionDB;
+import com.example.libraryapp.models.Notification;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
-import com.example.libraryapp.dao.Dao;
-import com.example.libraryapp.dao.db.ConnectionDB;
-import com.example.libraryapp.models.*;
-public class StudentDao implements Dao<Student> {
+public class NotificationDao implements Dao<Notification> {
 
     @Override
-    public boolean save(Student item) {
+    public boolean save(Notification item) {
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st ;
@@ -32,17 +33,17 @@ public class StudentDao implements Dao<Student> {
     }
 
     @Override
-    public Student getById(long id) {
+    public Notification getById(long id) {
         return null;
     }
 
     @Override
-    public List<Student> getAll() {
+    public List<Notification> getAll() {
         return null;
     }
 
     @Override
-    public boolean updateById(long id, Student newItem) {
+    public boolean updateById(long id, Notification newItem) {
         return false;
     }
 

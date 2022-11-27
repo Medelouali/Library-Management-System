@@ -13,7 +13,7 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/welcome-page-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Our Amazing App...");
+        stage.setTitle("Java Library Management System");
         stage.setScene(scene);
         stage.setWidth(700);
         stage.setHeight(550);

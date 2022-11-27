@@ -2,15 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="500.0" prefWidth="700.0" spacing="20.0" stylesheets="@../styles/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.HomeController">
     <padding>
@@ -78,57 +77,14 @@
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="466.0">
                               <children>
-                                 <VBox layoutX="-1.0" prefHeight="375.0" prefWidth="453.0">
-                                    <children>
-                                       <VBox prefHeight="38.0" prefWidth="443.0">
-                                          <children>
-                                             <Label text="Returning A Book" textFill="#2b10c3">
-                                                <font>
-                                                   <Font size="16.0" />
-                                                </font>
-                                             </Label>
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="272.0" prefWidth="443.0" spacing="20.0">
-                                          <children>
-                                             <TextField promptText="Student Name">
-                                                <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                </padding>
-                                             </TextField>
-                                             <TextField layoutX="10.0" layoutY="10.0" promptText="Book Title">
-                                                <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                </padding>
-                                             </TextField>
-                                             <TextField layoutX="10.0" layoutY="36.0" promptText="Book Author">
-                                                <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                </padding>
-                                             </TextField>
-                                             <TextField layoutX="10.0" layoutY="62.0" promptText="ISBN Number">
-                                                <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                </padding>
-                                             </TextField>
-                                             <DatePicker prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
-                                                <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                </padding>
-                                             </DatePicker>
-                                             <RadioButton mnemonicParsing="false" text="Still In Good State?" />
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="56.0" prefWidth="443.0">
-                                          <children>
-                                             <Button mnemonicParsing="false" text="Submit" />
-                                          </children>
-                                       </VBox>
-                                    </children>
-                                    <padding>
-                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                    </padding>
-                                 </VBox>
+                                 <ImageView fitHeight="336.0" fitWidth="453.0" layoutX="6.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../assets/errorpage.png" />
+                                    </image>
+                                 </ImageView>
+                                 <Button layoutX="103.0" layoutY="341.0" mnemonicParsing="false" text="Home Page" />
+                                 <Button layoutX="260.0" layoutY="341.0" mnemonicParsing="false" text="Fix Issue" />
+                                 <Label layoutX="3.0" prefHeight="49.0" prefWidth="451.0" text="Some error message should be displayed here, it should be specific what the error is" textFill="#3e4f94" wrapText="true" />
                               </children>
                                     </AnchorPane>
                                 </content>

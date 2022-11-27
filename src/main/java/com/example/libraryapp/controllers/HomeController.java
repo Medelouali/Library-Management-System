@@ -53,6 +53,13 @@ public class HomeController {
     private TextField searchId;
 
     @FXML
+    private TextField bookNameId;
+    @FXML
+    private TextField isbnId;
+    @FXML
+    private TextField copiesNumberId;
+
+    @FXML
     private Button settingsId;
 
     @FXML
@@ -76,7 +83,17 @@ public class HomeController {
             studentDao.save(std);
         }catch (Exception e){
             e.printStackTrace();
+            //addCopiesSubmit
         }
+    }
+
+    @FXML
+    void onAddCopiesSubmit(ActionEvent event) {
+        System.out.println("Submitting the data:");
+
+        System.out.println(bookNameId.getText());
+        System.out.println(isbnId.getText());
+        System.out.println(copiesNumberId.getText());
     }
 
     @FXML
@@ -100,7 +117,7 @@ public class HomeController {
     @FXML
     void onLogout(ActionEvent event) {
         try{
-            this.switchPage(event, "logout-view.fxml");
+            this.switchPage(event, "welcome-page-view.fxml");
         }catch (Exception e){
             e.printStackTrace();
         }
