@@ -1,22 +1,42 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class RegisterPageController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TextField cin;
+
+    @FXML
+    private TextField description;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField username;
 
     @FXML
     private AnchorPane registerPageID;
@@ -46,7 +66,25 @@ public class RegisterPageController {
     @FXML
     void onRegister(ActionEvent event) {
         try{
-            this.switchPage(event, "home-view.fxml");
+            boolean isMatching=patternMatches(email.getText());
+            boolean isSixDigits = password.getLength()>=6;
+            if (isMatching && isSixDigits)
+            {
+                String passwordHash = PasswordHash.encrypte(password.getText());
+                Student s = new Student(username.getText(),email.getText(),passwordHash,cin.getText(),description.getText());
+                StudentDao dao=new StudentDao();
+                boolean isRegistered = dao.save(s);
+                if (isRegistered) {
+                    this.switchPage(event, "home-view.fxml");
+                }
+            }
+            else if (!isMatching){
+                this.switchPage(event, "register-page-error-view.fxml");
+            }
+            else {
+                this.switchPage(event, "register-page-error-pwd-view.fxml");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -61,5 +99,11 @@ public class RegisterPageController {
         stage.setWidth(700);
         stage.setHeight(550);
         stage.show();
+    }
+    public static boolean patternMatches(String emailAddress) {
+        String regexPattern = "^(.+)@(\\S+)$";
+        return Pattern.compile(regexPattern)
+                .matcher(emailAddress)
+                .matches();
     }
 }

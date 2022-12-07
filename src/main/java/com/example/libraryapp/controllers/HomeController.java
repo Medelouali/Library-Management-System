@@ -76,9 +76,9 @@ public class HomeController {
         try{
             this.switchPage(event, "add-copies-view.fxml");
             // testing db
-            Student std=new Student(10, "Med", "test@gmail.com",
-                    "hackme", "Y123478", new Date(1, 1, 1),
-                    "descriotion about...", 20, "USER", false);
+            Student std=new Student("Med", "test@gmail.com",
+                    "hackme", "Y123478",
+                    "descriotion about...");
             Dao<Student> studentDao=new StudentDao();
             studentDao.save(std);
         }catch (Exception e){

@@ -15,3 +15,7 @@
      -fx-text-fill: #191970;
      -fx-underline: true;
 }
+#error_msg{
+    -fx-text-fill: red;
+    -fx-font-size: 15px;
+}

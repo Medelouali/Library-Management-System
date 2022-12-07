@@ -16,17 +16,33 @@ public class StudentDao implements Dao<Student> {
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String req="show databases;";
-            ResultSet rs= st.executeQuery(req);
-            while(rs.next()){
-                System.out.println("It's working");
-                System.out.println(rs);
-            }
+            String req="INSERT INTO students(fullname,email,password,cin,description,priveleges,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getPrivileges()+"','"+item.getIsFlagged()+"');";
+            st.executeUpdate(req);
             conDb.getCon().close();
-            return false;
+            return true;
         }catch (Exception ec){
             ec.printStackTrace();
-            return true;
+            return false;
+        }
+
+    }
+
+    public boolean check(Student item) {
+        ConnectionDB conDb = new ConnectionDB();
+
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req = "SELECT COUNT(*) FROM students WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"';";
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            boolean exists = rs.getInt("COUNT(*)") > 0;
+            st.close();
+            conDb.getCon().close();
+            return exists;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            return false;
         }
 
     }

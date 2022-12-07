@@ -1,12 +1,16 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -19,6 +23,11 @@ public class LoginPageController {
 
     @FXML
     private AnchorPane loginPageID;
+    @FXML
+    private TextField email;
+
+    @FXML
+    private PasswordField password;
 
     @FXML
     void onBack(ActionEvent event) {
@@ -38,7 +47,17 @@ public class LoginPageController {
     @FXML
     void onLogin(ActionEvent event) {
         try{
-            this.switchPage(event, "home-view.fxml");
+            String passwordHash = PasswordHash.encrypte(password.getText());
+            Student s = new Student(email.getText(),passwordHash);
+            StudentDao dao = new StudentDao();
+            boolean exists = dao.check(s);
+            if (exists)
+            {
+                this.switchPage(event, "home-view.fxml");
+            }
+            else {
+                this.switchPage(event, "login-page-error-view.fxml");
+            }
         }catch (Exception e){
             e.printStackTrace();
         }

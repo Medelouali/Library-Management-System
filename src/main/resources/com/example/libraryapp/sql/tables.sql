@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 05 déc. 2022 à 22:01
+-- Généré le : mer. 07 déc. 2022 à 10:53
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -158,13 +158,13 @@ INSERT INTO `notifications` (`id`, `student_id`, `content`, `timeToLive`, `times
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `priveleges` int(11) NOT NULL,
-  `maxBorrowed` int(11) NOT NULL,
+  `maxBorrowed` int(11) NOT NULL DEFAULT 3,
   `flagged` int(11) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -178,7 +178,8 @@ INSERT INTO `students` (`id`, `fullname`, `picture`, `email`, `password`, `cin`,
 (2, 'crystel.kassulke', 'https://via.placeholder.com/640x480.png/00aa11?text=blanditiis', 'posinski@lang.com', '=!cP|vE|Sv]=#Mw&zp\\', 'EE15469', 'Ab fugiat sunt officiis ea quos facere. Distinctio corporis sint dolore ut sunt. Officiis excepturi eveniet eos temporibus. Accusamus aut et ipsum voluptatibus exercitationem praesentium. Earum voluptates dolores eos error quibusdam. Maiores dolores occaecati corporis omnis non dolorem dolor cupiditate.', 1, 3, 1, '2022-12-05 20:56:00'),
 (3, 'rice.josiane', 'https://via.placeholder.com/640x480.png/00ff11?text=maiores', 'davion89@ohara.org', 'H>Irh4e[6G>GTk', 'EE15469', 'Fugit et dicta eligendi inventore tenetur dolorem nesciunt voluptatem. Eum temporibus aut est doloribus quam illo. Reiciendis blanditiis facilis exercitationem ut deleniti et ab. Voluptas asperiores officiis reprehenderit consequuntur. Nesciunt et modi nostrum provident tempore consequatur.', 1, 3, 1, '2022-12-05 20:56:00'),
 (4, 'vmohr', 'https://via.placeholder.com/640x480.png/0055ee?text=laudantium', 'qbechtelar@yahoo.com', 'rl\"LWh', 'EE15469', 'Ipsa maiores voluptatem incidunt blanditiis quaerat laboriosam sunt nulla. Est est vel nobis corrupti. Cupiditate quaerat perferendis consequatur quo exercitationem ut aspernatur. Cupiditate aut quibusdam nemo aut.', 1, 3, 1, '2022-12-05 20:56:00'),
-(5, 'elbert89', 'https://via.placeholder.com/640x480.png/0066bb?text=enim', 'will.stan@feil.com', 'im\"gFLyZfAF}U@8', 'EE15469', 'Eveniet sint et dolorum tempora id dolore ipsum. Provident et assumenda esse nemo. Velit sit quaerat similique non. Magnam odit nam modi quidem. Odio sapiente quisquam dolorem sed. Vel possimus doloribus totam earum. Aperiam sapiente debitis reiciendis doloribus nostrum.', 1, 3, 0, '2022-12-05 20:56:00');
+(5, 'elbert89', 'https://via.placeholder.com/640x480.png/0066bb?text=enim', 'will.stan@feil.com', 'im\"gFLyZfAF}U@8', 'EE15469', 'Eveniet sint et dolorum tempora id dolore ipsum. Provident et assumenda esse nemo. Velit sit quaerat similique non. Magnam odit nam modi quidem. Odio sapiente quisquam dolorem sed. Vel possimus doloribus totam earum. Aperiam sapiente debitis reiciendis doloribus nostrum.', 1, 3, 0, '2022-12-05 20:56:00'),
+(6, 'john', NULL, 'john@gmail.com', '123456', 'EE123456', 'description', 1, 3, 0, '2022-12-07 09:47:42');
 
 -- --------------------------------------------------------
 
@@ -289,7 +290,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT pour la table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `superadmins`
