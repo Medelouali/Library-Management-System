@@ -21,8 +21,7 @@ public class BookCopyDao implements Dao<BookCopy> {
             String req="show databases;";
             ResultSet rs= st.executeQuery(req);
             while(rs.next()){
-                System.out.println("It's working");
-                System.out.println(rs);
+                System.out.println("Hii");
             }
             conDb.getCon().close();
             return false;

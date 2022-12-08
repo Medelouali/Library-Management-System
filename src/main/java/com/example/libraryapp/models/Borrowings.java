@@ -2,7 +2,7 @@ package com.example.libraryapp.models;
 
 import java.sql.Date;
 
-public class BorrowingBook {
+public class Borrowings {
     private long id;
     private long copyId;
     private long studentId;
@@ -11,7 +11,7 @@ public class BorrowingBook {
     private Date returnDate;
 
 
-    public BorrowingBook(long id, long copyId, long studentId, long adminId, Date borrowingDate, Date returnDate) {
+    public Borrowings(long id, long copyId, long studentId, long adminId, Date borrowingDate, Date returnDate) {
         this.id = id;
         this.copyId = copyId;
         this.studentId = studentId;

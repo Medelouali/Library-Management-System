@@ -2,8 +2,11 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
+import com.example.libraryapp.dao.impls.BookDao;
 import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Book;
 import com.example.libraryapp.models.Student;
+import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +14,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class HomeController {
     private Stage stage;
@@ -71,16 +79,37 @@ public class HomeController {
     @FXML
     private Button transactionsId;
 
+    //comment
+    @FXML
+    private Button ReturnBookSubmitId;
+
+    @FXML
+    private TextField returnBookAuthorId;
+    @FXML
+    private TextField returnStudentCinId;
+
+
+    @FXML
+    private TextField returnBookTitleId;
+
+    @FXML
+    private TextField returnIsbnNumberId;
+
+    @FXML
+    private DatePicker returnReturnDateId;
+
+    @FXML
+    private RadioButton returnStateId;
+
+    @FXML
+    private TextField returnStudentNameId;
+
+    @FXML
+    private HBox vBoxBodyId;
     @FXML
     void onAddCopies(ActionEvent event) {
         try{
             this.switchPage(event, "add-copies-view.fxml");
-            // testing db
-            Student std=new Student(10, "Med", "test@gmail.com",
-                    "hackme", "Y123478", new Date(1, 1, 1),
-                    "descriotion about...", 20, "USER", false);
-            Dao<Student> studentDao=new StudentDao();
-            studentDao.save(std);
         }catch (Exception e){
             e.printStackTrace();
             //addCopiesSubmit
@@ -94,6 +123,20 @@ public class HomeController {
         System.out.println(bookNameId.getText());
         System.out.println(isbnId.getText());
         System.out.println(copiesNumberId.getText());
+
+        //adding copies to copyAmount in books
+        long copiesToAdd=0;
+        try{
+            copiesToAdd=Long.parseLong(copiesNumberId.getText());
+        }catch (Exception e){
+            AlertMessage msg=new AlertMessage("Whoops!", "", "Please the number of copies to add should be an integer like 10 for example");
+            msg.displayWarning();
+            return;
+        }
+        Dao<Book> bookDao=new BookDao();
+        ((BookDao)bookDao).addCopies(new Book(7, bookNameId.getText(), copiesToAdd));
+
+        //generating copies a n x times
     }
 
     @FXML
@@ -148,6 +191,41 @@ public class HomeController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    //steps(after submission of the onReturnBookSubmit is triggered):
+    //1-check if the given user has already actually borrowed a book
+    // if yes: delete borrowed book and make the copy available again for use
+    // if not display a popup message.
+    @FXML
+    void onReturnBookSubmit(ActionEvent event) {
+        // Just for testing these souts
+        System.out.println("Submitting the data:");
+        System.out.println("returnStudentNameId: " + returnStudentNameId.getText());
+        System.out.println("returnStudentCinId: " + returnStudentCinId.getText());
+        System.out.println("returnBookTitleId: " + returnBookTitleId.getText());
+        System.out.println("returnBookAuthorId: " + returnBookAuthorId.getText());
+        System.out.println("returnIsbnNumberId: " + returnIsbnNumberId.getText());
+        System.out.println("returnReturnDateId: " + returnReturnDateId.getEditor().getText());
+        System.out.println("returnStateId: " + returnStateId.isSelected());
+
+        Dao<Student> daoSt=new StudentDao();
+        String msg=((StudentDao)daoSt).hasAlreadyBorrowedBook(
+                new Student(returnStudentNameId.getText(), returnStudentCinId.getText()),
+                returnBookTitleId.getText(),
+                returnBookAuthorId.getText(),
+                returnIsbnNumberId.getText(),
+                returnStateId.isSelected(),
+                returnReturnDateId.getEditor().getText());
+        if(msg.isEmpty()){
+            AlertMessage alertMessage=new AlertMessage("Congrats", "",
+                    "The book has been saved back successfully, hope someone would come to get it:)");
+            alertMessage.displayConfirmation();
+        }else{
+            AlertMessage alertMessage=new AlertMessage("Whoops!", "", msg);
+            alertMessage.displayWarning();
+        }
+
     }
 
     @FXML

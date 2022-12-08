@@ -89,39 +89,44 @@
                                              </Label>
                                           </children>
                                        </VBox>
-                                       <VBox prefHeight="272.0" prefWidth="443.0" spacing="20.0">
+                                       <VBox prefHeight="363.0" prefWidth="443.0" spacing="20.0">
                                           <children>
-                                             <TextField promptText="Student Name">
+                                             <TextField fx:id="returnStudentNameId" promptText="Student Name">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
-                                             <TextField layoutX="10.0" layoutY="10.0" promptText="Book Title">
+                                             <TextField fx:id="returnStudentCinId" layoutX="10.0" layoutY="10.0" promptText="Student CIN">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
-                                             <TextField layoutX="10.0" layoutY="36.0" promptText="Book Author">
+                                             <TextField fx:id="returnBookTitleId" layoutX="10.0" layoutY="10.0" promptText="Book Title">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
-                                             <TextField layoutX="10.0" layoutY="62.0" promptText="ISBN Number">
+                                             <TextField fx:id="returnBookAuthorId" layoutX="10.0" layoutY="36.0" promptText="Book Author">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
-                                             <DatePicker prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
+                                             <TextField fx:id="returnIsbnNumberId" layoutX="10.0" layoutY="62.0" promptText="ISBN Number">
+                                                <padding>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                </padding>
+                                             </TextField>
+                                             <DatePicker fx:id="returnReturnDateId" prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </DatePicker>
-                                             <RadioButton mnemonicParsing="false" text="Still In Good State?" />
+                                             <RadioButton fx:id="returnStateId" mnemonicParsing="false" text="Still In Good State?" />
                                           </children>
                                        </VBox>
                                        <VBox prefHeight="56.0" prefWidth="443.0">
                                           <children>
-                                             <Button mnemonicParsing="false" text="Submit" />
+                                             <Button fx:id="ReturnBookSubmitId" mnemonicParsing="false" onAction="#onReturnBookSubmit" text="Submit" />
                                           </children>
                                        </VBox>
                                     </children>

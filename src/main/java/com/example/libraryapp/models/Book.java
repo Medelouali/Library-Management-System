@@ -27,6 +27,12 @@ public class Book {
         this.pagesNumber=pagesNumber;
     }
 
+    public Book(long id, String title, long copiesNumber) {
+        this.id = id;
+        this.title = title;
+        this.copiesNumber = copiesNumber;
+    }
+
     public long getId() {
         return id;
     }

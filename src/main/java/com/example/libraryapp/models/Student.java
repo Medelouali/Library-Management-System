@@ -30,6 +30,11 @@ public class Student {
         this.isFlagged = isFlagged;
     }
 
+    public Student(String username, String cin) {
+        this.username = username;
+        this.cin = cin;
+    }
+
     public long getId() {
         return id;
     }

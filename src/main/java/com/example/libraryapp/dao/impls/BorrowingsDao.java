@@ -2,20 +2,20 @@ package com.example.libraryapp.dao.impls;
 
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
-import com.example.libraryapp.models.Admin;
-import com.example.libraryapp.models.BorrowingBook;
+import com.example.libraryapp.models.Borrowings;
+import com.example.libraryapp.models.Student;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
-public class BorrowingBookDao implements Dao<BorrowingBook> {
+public class BorrowingsDao implements Dao<Borrowings> {
 
     @Override
-    public boolean save(BorrowingBook item) {
+    public boolean save(Borrowings item) {
         ConnectionDB conDb = new ConnectionDB();
 
-        Statement st ;
+        Statement st;
         try {
             st = conDb.getCon().createStatement();
             String req="show databases;";
@@ -33,18 +33,20 @@ public class BorrowingBookDao implements Dao<BorrowingBook> {
 
     }
 
+
+
     @Override
-    public BorrowingBook getById(long id) {
+    public Borrowings getById(long id) {
         return null;
     }
 
     @Override
-    public List<BorrowingBook> getAll() {
+    public List<Borrowings> getAll() {
         return null;
     }
 
     @Override
-    public boolean updateById(long id, BorrowingBook newItem) {
+    public boolean updateById(long id, Borrowings newItem) {
         return false;
     }
 
