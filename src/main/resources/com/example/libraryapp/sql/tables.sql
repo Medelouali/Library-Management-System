@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 07 déc. 2022 à 10:53
+-- Généré le : jeu. 08 déc. 2022 à 14:01
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -50,7 +50,8 @@ INSERT INTO `admins` (`id`, `fullname`, `picture`, `email`, `password`, `cin`, `
 (2, 'daron51', 'https://via.placeholder.com/640x480.png/004444?text=voluptatibus', 'carmine56@hotmail.com', 'I6|iD6I', 'EE123456', 'Amet laudantium porro nemo quidem dolores ea dolore. Quidem molestiae odit est eos molestiae qui labore. Consectetur rerum aspernatur totam. Nemo ipsam repellendus aut officiis molestiae corporis consectetur. Provident dicta perspiciatis quia est vel eum. Necessitatibus ipsum explicabo iste voluptas ipsa veniam.', 2, 3, 0, '2022-12-05 20:56:00'),
 (3, 'jhand', 'https://via.placeholder.com/640x480.png/0055ff?text=a', 'willard.heaney@conroy.net', '/0%/2A3uP9;', 'EE123456', 'Ad id nostrum placeat qui sed porro. Voluptas et cum incidunt voluptas vel debitis. Accusantium quod ea voluptas eaque. Est deleniti nobis laborum cum omnis sint.', 2, 3, 0, '2022-12-05 20:56:00'),
 (4, 'vkassulke', 'https://via.placeholder.com/640x480.png/005577?text=quia', 'ruby36@wehner.net', '#wy0TW*{xb^*UD&', 'EE123456', 'Sit asperiores natus molestias. Est quam quia sed enim esse voluptas aut. Dolor rerum minima adipisci molestiae adipisci qui molestiae. Voluptates accusamus dolorem quae saepe in. Repellat voluptatem voluptatum maxime nobis reprehenderit voluptatum in. Autem cumque quia necessitatibus cumque temporibus.', 2, 3, 1, '2022-12-05 20:56:00'),
-(5, 'carlie.herzog', 'https://via.placeholder.com/640x480.png/001166?text=sit', 'zbradtke@huel.info', 'f<_=Pp9LA.B', 'EE123456', 'Fuga incidunt eius reiciendis et molestiae voluptas. Vel dolorem libero magni vel voluptates expedita. Quam excepturi eius aut. Corporis temporibus quo dolorem ab et id. Saepe velit saepe rerum itaque. Dolor ut sit ea reiciendis. Voluptas ipsa dolor aspernatur non.', 2, 3, 1, '2022-12-05 20:56:00');
+(5, 'carlie.herzog', 'https://via.placeholder.com/640x480.png/001166?text=sit', 'zbradtke@huel.info', 'f<_=Pp9LA.B', 'EE123456', 'Fuga incidunt eius reiciendis et molestiae voluptas. Vel dolorem libero magni vel voluptates expedita. Quam excepturi eius aut. Corporis temporibus quo dolorem ab et id. Saepe velit saepe rerum itaque. Dolor ut sit ea reiciendis. Voluptas ipsa dolor aspernatur non.', 2, 3, 1, '2022-12-05 20:56:00'),
+(6, 'John doe', '', 'johndoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'a dead body', 2, 0, NULL, '2022-12-08 12:40:48');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,15 @@ INSERT INTO `students` (`id`, `fullname`, `picture`, `email`, `password`, `cin`,
 (3, 'rice.josiane', 'https://via.placeholder.com/640x480.png/00ff11?text=maiores', 'davion89@ohara.org', 'H>Irh4e[6G>GTk', 'EE15469', 'Fugit et dicta eligendi inventore tenetur dolorem nesciunt voluptatem. Eum temporibus aut est doloribus quam illo. Reiciendis blanditiis facilis exercitationem ut deleniti et ab. Voluptas asperiores officiis reprehenderit consequuntur. Nesciunt et modi nostrum provident tempore consequatur.', 1, 3, 1, '2022-12-05 20:56:00'),
 (4, 'vmohr', 'https://via.placeholder.com/640x480.png/0055ee?text=laudantium', 'qbechtelar@yahoo.com', 'rl\"LWh', 'EE15469', 'Ipsa maiores voluptatem incidunt blanditiis quaerat laboriosam sunt nulla. Est est vel nobis corrupti. Cupiditate quaerat perferendis consequatur quo exercitationem ut aspernatur. Cupiditate aut quibusdam nemo aut.', 1, 3, 1, '2022-12-05 20:56:00'),
 (5, 'elbert89', 'https://via.placeholder.com/640x480.png/0066bb?text=enim', 'will.stan@feil.com', 'im\"gFLyZfAF}U@8', 'EE15469', 'Eveniet sint et dolorum tempora id dolore ipsum. Provident et assumenda esse nemo. Velit sit quaerat similique non. Magnam odit nam modi quidem. Odio sapiente quisquam dolorem sed. Vel possimus doloribus totam earum. Aperiam sapiente debitis reiciendis doloribus nostrum.', 1, 3, 0, '2022-12-05 20:56:00'),
-(6, 'john', NULL, 'john@gmail.com', '123456', 'EE123456', 'description', 1, 3, 0, '2022-12-07 09:47:42');
+(6, 'john', NULL, 'john@gmail.com', '123456', 'EE123456', 'description', 1, 3, 0, '2022-12-07 09:47:42'),
+(8, 'jane', NULL, 'jane@doe.com', '123456', 'E123456', 'Description', 1, 3, 0, '2022-12-07 10:21:53'),
+(9, 'doe', NULL, 'doe@doe', '123456', 'E12346', 'Description', 1, 3, 0, '2022-12-07 10:24:34'),
+(10, 'nizar', NULL, 'nizar@nizar', '123456', 'EE123', 'description', 1, 3, 0, '2022-12-07 11:29:18'),
+(11, 'Aurora', NULL, 'Aurora@aurora.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'Description', 1, 3, 0, '2022-12-07 20:28:19'),
+(12, 'Med', NULL, 'test@gmail.com', 'hackme', 'Y123478', 'descriotion about...', 1, 3, 0, '2022-12-07 20:43:36'),
+(13, 'Med', NULL, 'test@gmail.com', 'hackme', 'Y123478', 'descriotion about...', 1, 3, 0, '2022-12-07 20:43:39'),
+(14, 'Med', NULL, 'test@gmail.com', 'hackme', 'Y123478', 'descriotion about...', 1, 3, 0, '2022-12-07 21:10:35'),
+(15, 'mark', NULL, 'mark@mark.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'Description', 1, 3, 0, '2022-12-08 11:40:37');
 
 -- --------------------------------------------------------
 
@@ -206,7 +215,7 @@ CREATE TABLE `superadmins` (
 --
 
 INSERT INTO `superadmins` (`id`, `fullname`, `picture`, `email`, `password`, `cin`, `description`, `priveleges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
-(1, 'superadmin', 'https://via.placeholder.com/640x480.png/003311?text=mollitia', 'superadmin@email.com', '12az55sd', 'EE789654', 'Cumque deserunt aspernatur nam ad consequatur veniam dolores. At assumenda autem id qui. Minus accusantium ipsa officia deserunt sequi. Ut harum voluptates cumque dolor ea sint doloremque. Totam magni quidem fugiat consequatur.', 3, NULL, NULL, '2022-12-05 20:56:00');
+(1, 'superadmin', 'https://via.placeholder.com/640x480.png/003311?text=mollitia', 'superadmin@email.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE789654', 'Cumque deserunt aspernatur nam ad consequatur veniam dolores. At assumenda autem id qui. Minus accusantium ipsa officia deserunt sequi. Ut harum voluptates cumque dolor ea sint doloremque. Totam magni quidem fugiat consequatur.', 3, NULL, NULL, '2022-12-08 12:46:34');
 
 --
 -- Index pour les tables déchargées
@@ -266,7 +275,7 @@ ALTER TABLE `superadmins`
 -- AUTO_INCREMENT pour la table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `bookcopies`
@@ -290,7 +299,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT pour la table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `superadmins`

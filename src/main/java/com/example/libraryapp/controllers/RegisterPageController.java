@@ -75,7 +75,10 @@ public class RegisterPageController {
                 StudentDao dao=new StudentDao();
                 boolean isRegistered = dao.save(s);
                 if (isRegistered) {
-                    this.switchPage(event, "home-view.fxml");
+                    this.switchPage(event, "student-home-view.fxml");
+                }
+                else  {
+                    this.switchPage(event, "register-page-error-view.fxml");
                 }
             }
             else if (!isMatching){

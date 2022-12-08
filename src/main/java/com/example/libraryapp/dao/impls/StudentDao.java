@@ -16,10 +16,19 @@ public class StudentDao implements Dao<Student> {
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String req="INSERT INTO students(fullname,email,password,cin,description,priveleges,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getPrivileges()+"','"+item.getIsFlagged()+"');";
-            st.executeUpdate(req);
-            conDb.getCon().close();
-            return true;
+            String checkStudent = "SELECT COUNT(*) FROM students WHERE email like '"+item.getEmail()+"';";
+            ResultSet rs = st.executeQuery(checkStudent);
+            rs.next();
+            boolean exists = rs.getInt("COUNT(*)")==0;
+            if (exists){
+                String req="INSERT INTO students(fullname,email,password,cin,description,priveleges,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getPrivileges()+"','"+item.getIsFlagged()+"');";
+                st.executeUpdate(req);
+                conDb.getCon().close();
+                return true;
+            }
+            else {
+                return false;
+            }
         }catch (Exception ec){
             ec.printStackTrace();
             return false;
@@ -27,24 +36,22 @@ public class StudentDao implements Dao<Student> {
 
     }
 
-    public boolean check(Student item) {
+    public int checkLogin(Student item) {
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String req = "SELECT COUNT(*) FROM students WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"';";
+            String req = "SELECT priveleges FROM students WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT priveleges FROM admins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT priveleges FROM superadmins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"';";
             ResultSet rs = st.executeQuery(req);
             rs.next();
-            boolean exists = rs.getInt("COUNT(*)") > 0;
+            int exists = rs.getInt("priveleges");
             st.close();
             conDb.getCon().close();
             return exists;
         }catch (Exception ec){
-            ec.printStackTrace();
-            return false;
+            return 0;
         }
-
     }
 
     @Override

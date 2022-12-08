@@ -50,10 +50,14 @@ public class LoginPageController {
             String passwordHash = PasswordHash.encrypte(password.getText());
             Student s = new Student(email.getText(),passwordHash);
             StudentDao dao = new StudentDao();
-            boolean exists = dao.check(s);
-            if (exists)
+            int exists = dao.checkLogin(s);
+            System.out.println(exists);
+            if (exists!=0)
             {
-                this.switchPage(event, "home-view.fxml");
+                switch (exists) {
+                    case 1 -> this.switchPage(event, "student-home-view.fxml");
+                    case 2, 3 -> this.switchPage(event, "home-view.fxml");
+                }
             }
             else {
                 this.switchPage(event, "login-page-error-view.fxml");
