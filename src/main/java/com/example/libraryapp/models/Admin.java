@@ -7,4 +7,10 @@ public class Admin extends Student {
         //we'll add some code later
     }
 
+    public Admin(String email, String password) {
+        super(email, password);
+        //we'll add some code later
+    }
+
+
 }

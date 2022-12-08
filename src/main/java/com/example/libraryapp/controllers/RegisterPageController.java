@@ -1,7 +1,9 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Admin;
 import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,11 +73,11 @@ public class RegisterPageController {
             if (isMatching && isSixDigits)
             {
                 String passwordHash = PasswordHash.encrypte(password.getText());
-                Student s = new Student(username.getText(),email.getText(),passwordHash,cin.getText(),description.getText());
-                StudentDao dao=new StudentDao();
+                Admin s = new Admin(username.getText(),email.getText(),passwordHash,cin.getText(),description.getText());
+                AdminDao dao=new AdminDao();
                 boolean isRegistered = dao.save(s);
                 if (isRegistered) {
-                    this.switchPage(event, "student-home-view.fxml");
+                    this.switchPage(event, "home-view.fxml");
                 }
                 else  {
                     this.switchPage(event, "register-page-error-view.fxml");

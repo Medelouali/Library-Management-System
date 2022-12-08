@@ -1,7 +1,9 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.models.Admin;
 import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,8 +50,8 @@ public class LoginPageController {
     void onLogin(ActionEvent event) {
         try{
             String passwordHash = PasswordHash.encrypte(password.getText());
-            Student s = new Student(email.getText(),passwordHash);
-            StudentDao dao = new StudentDao();
+            Admin s = new Admin(email.getText(),passwordHash);
+            AdminDao dao = new AdminDao();
             int exists = dao.checkLogin(s);
             System.out.println(exists);
             if (exists!=0)

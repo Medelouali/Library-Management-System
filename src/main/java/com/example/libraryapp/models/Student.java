@@ -13,7 +13,7 @@ public class Student {
     private Date timeStamp;
     private String description;
     public long booksNumber;
-    private int privileges=1;
+    private int privileges;
 
     private int isFlagged=0;
 

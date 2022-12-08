@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 08 déc. 2022 à 14:01
+-- Généré le : jeu. 08 déc. 2022 à 19:50
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `priveleges` int(11) NOT NULL,
-  `maxBorrowed` int(11) NOT NULL,
+  `priveleges` int(11) NOT NULL DEFAULT 2,
+  `maxBorrowed` int(11) DEFAULT NULL,
   `flagged` int(11) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -51,7 +51,8 @@ INSERT INTO `admins` (`id`, `fullname`, `picture`, `email`, `password`, `cin`, `
 (3, 'jhand', 'https://via.placeholder.com/640x480.png/0055ff?text=a', 'willard.heaney@conroy.net', '/0%/2A3uP9;', 'EE123456', 'Ad id nostrum placeat qui sed porro. Voluptas et cum incidunt voluptas vel debitis. Accusantium quod ea voluptas eaque. Est deleniti nobis laborum cum omnis sint.', 2, 3, 0, '2022-12-05 20:56:00'),
 (4, 'vkassulke', 'https://via.placeholder.com/640x480.png/005577?text=quia', 'ruby36@wehner.net', '#wy0TW*{xb^*UD&', 'EE123456', 'Sit asperiores natus molestias. Est quam quia sed enim esse voluptas aut. Dolor rerum minima adipisci molestiae adipisci qui molestiae. Voluptates accusamus dolorem quae saepe in. Repellat voluptatem voluptatum maxime nobis reprehenderit voluptatum in. Autem cumque quia necessitatibus cumque temporibus.', 2, 3, 1, '2022-12-05 20:56:00'),
 (5, 'carlie.herzog', 'https://via.placeholder.com/640x480.png/001166?text=sit', 'zbradtke@huel.info', 'f<_=Pp9LA.B', 'EE123456', 'Fuga incidunt eius reiciendis et molestiae voluptas. Vel dolorem libero magni vel voluptates expedita. Quam excepturi eius aut. Corporis temporibus quo dolorem ab et id. Saepe velit saepe rerum itaque. Dolor ut sit ea reiciendis. Voluptas ipsa dolor aspernatur non.', 2, 3, 1, '2022-12-05 20:56:00'),
-(6, 'John doe', '', 'johndoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'a dead body', 2, 0, NULL, '2022-12-08 12:40:48');
+(6, 'John doe', '', 'johndoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'a dead body', 2, 0, NULL, '2022-12-08 12:40:48'),
+(9, 'zack', NULL, 'zack@zack.com', 'e10adc3949ba59abbe56e057f20f883e', 'EE123456', 'Description', 2, NULL, 0, '2022-12-08 18:48:04');
 
 -- --------------------------------------------------------
 
@@ -275,7 +276,7 @@ ALTER TABLE `superadmins`
 -- AUTO_INCREMENT pour la table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `bookcopies`
