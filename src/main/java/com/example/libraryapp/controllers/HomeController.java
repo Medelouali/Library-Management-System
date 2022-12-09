@@ -105,6 +105,15 @@ public class HomeController {
 
     @FXML
     private HBox vBoxBodyId;
+
+    @FXML
+    void onAddCopies(ActionEvent event) {
+        try{
+            this.switchPage(event, "add-copies-view.fxml");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @FXML
     void onAddCopiesSubmit(ActionEvent event) {
         System.out.println("Submitting the data:");

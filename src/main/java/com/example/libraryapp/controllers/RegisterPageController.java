@@ -4,6 +4,7 @@ import com.example.libraryapp.Main;
 
 import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.models.Admin;
+import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,17 +82,22 @@ public class RegisterPageController {
                     this.switchPage(event, "home-view.fxml");
                 }
                 else  {
-                    this.switchPage(event, "register-page-error-view.fxml");
+                    AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Could not save your credentials, try again please");
+                    alertMessage.displayWarning();
                 }
             }
             else if (!isMatching){
-                this.switchPage(event, "register-page-error-view.fxml");
+                AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Wrong email, please enter a valid one");
+                alertMessage.displayWarning();
             }
             else {
-                this.switchPage(event, "register-page-error-pwd-view.fxml");
+                AlertMessage alertMessage=new AlertMessage("Whoops!", "", "The password should be at least characters, attackers are after us:(");
+                alertMessage.displayWarning();
             }
 
         }catch (Exception e){
+            AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Something went wrong please try again");
+            alertMessage.displayError();
             e.printStackTrace();
         }
 

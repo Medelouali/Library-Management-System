@@ -25,7 +25,7 @@ public class AdminDao implements Dao<Admin> {
             rs.next();
             boolean exists = rs.getInt("COUNT(*)")==0;
             if (exists){
-                String req="INSERT INTO admins(fullname,email,password,cin,description,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getIsFlagged()+"');";
+                String req="INSERT INTO admins(username,email,password,cin,description,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getIsFlagged()+"');";
                 st.executeUpdate(req);
                 conDb.getCon().close();
                 return true;
@@ -44,10 +44,14 @@ public class AdminDao implements Dao<Admin> {
     public int checkLogin(Student item) {
         ConnectionDB conDb = new ConnectionDB();
 
-        Statement st ;
+        Statement st;
         try {
             st = conDb.getCon().createStatement();
-            String req = "SELECT privileges FROM students WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT priveleges FROM admins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT privileges FROM superadmins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"';";
+            String req = "SELECT privileges FROM students WHERE email like '"
+                    +item.getEmail()+"' and password like '"+item.getPassword()+"'"+
+                    " UNION SELECT privileges FROM admins WHERE email like '"+item.getEmail()+
+                    "' and password like '"+item.getPassword()+"'"+" UNION SELECT privileges FROM superadmins WHERE email like '"+
+                    item.getEmail()+"' and password like '"+item.getPassword()+"';";
             ResultSet rs = st.executeQuery(req);
             rs.next();
             int exists = rs.getInt("privileges");

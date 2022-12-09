@@ -37,9 +37,9 @@ CREATE TABLE `admins` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `privileges` int(11) NOT NULL,
-  `maxBorrowed` int(11) NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `privileges` int(11) NOT NULL DEFAULT 2,
+  `maxBorrowed` int(11) DEFAULT 10,
   `flagged` int(11) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (id)
@@ -49,12 +49,12 @@ CREATE TABLE `admins` (
 -- Déchargement des données de la table `admins`
 --
 
-INSERT INTO `admins` (`username`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
+INSERT INTO `admins` (`username`, `picture`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
 ('derek.reichel', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'yolanda.murphy@gaylord.biz', 't5Z[<.', 'EE123456', 'Laboriosam velit quia quia eligendi deserunt. Ut quis quam sapiente optio qui neque eos veniam. Dolores sequi nisi incidunt dolores distinctio soluta recusandae provident. Earum quam et error ullam distinctio voluptate. Ex sapiente excepturi qui.', 2, 3, 0, '2022-10-26 13:49:37'),
-('wilderman.candido', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'julia72@yahoo.com', 'dr\\Z:aJ+', 'EE123456', 'Aut maxime accusamus dignissimos suscipit ut tempora cumque reiciendis. Et quis aut odio quas quisquam excepturi. Nulla consequatur magnam rerum repudiandae. Voluptatem voluptatem sunt rem deserunt minima sit non. Quas enim nesciunt rerum cumque occaecati quod. Quibusdam magnam recusandae inventore dolores magnam iusto a sunt. Sed dolorem vel est adipisci voluptatem id.', 2, 3, 1, '2022-10-26 13:49:37'),
-('cronin.amelia', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'witting.shaniya@gmail.com', 'AF|%Z\"2w/,+1.lbI', 'EE123456', 'Nesciunt esse ut possimus nemo nulla consectetur. Et adipisci veritatis at. Repudiandae a incidunt et pariatur debitis sit. Molestiae harum voluptatum et neque quia soluta. Recusandae fugit cum mollitia occaecati tempore impedit enim fuga. Ullam corporis labore neque incidunt. Voluptatum tenetur consequuntur incidunt maiores in.', 2, 3, 1, '2022-10-26 13:49:37'),
-('schaden.lowell', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'treutel.okey@yahoo.com', 'DQ2\\>S!\\zH&K;My&`|8g', 'EE123456', 'Veniam earum vel et. Ipsa repudiandae dolorem corrupti ab modi. Sit pariatur ipsam aliquam dolorem quis repudiandae. Modi ea quia quibusdam dolor est quisquam rerum.', 2, 3, 0, '2022-10-26 13:49:37'),
-('farrell.mozelle', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'claude18@mann.com', 'Yw*\'aE?', 'EE123456', 'Aut et reprehenderit distinctio facilis. Exercitationem cum cupiditate facere libero ipsum. Doloribus sit est hic ut unde. Atque quibusdam maiores tempora architecto qui. Quos ut qui qui. Atque inventore perspiciatis placeat non autem. Ad corrupti omnis repellendus odio culpa itaque adipisci.', 2, 3, 0, '2022-10-26 13:49:37');
+('wilderman.candido', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'julia72@yahoo.com', 'drZ:aJ+', 'EE123456', 'Aut maxime accusamus dignissimos suscipit ut tempora cumque reiciendis. Et quis aut odio quas quisquam excepturi. Nulla consequatur magnam rerum repudiandae. Voluptatem voluptatem sunt rem deserunt minima sit non. Quas enim nesciunt rerum cumque occaecati quod. Quibusdam magnam recusandae inventore dolores magnam iusto a sunt. Sed dolorem vel est adipisci voluptatem id.', 2, 3, 1, '2022-10-26 13:49:37'),
+('cronin.amelia', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'witting.shaniya@gmail.com', 'AF|%Z2w/,+1.lbI', 'EE123456', 'Nesciunt esse ut possimus nemo nulla consectetur. Et adipisci veritatis at. Repudiandae a incidunt et pariatur debitis sit. Molestiae harum voluptatum et neque quia soluta. Recusandae fugit cum mollitia occaecati tempore impedit enim fuga. Ullam corporis labore neque incidunt. Voluptatum tenetur consequuntur incidunt maiores in.', 2, 3, 1, '2022-10-26 13:49:37'),
+('schaden.lowell', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'treutel.okey@yahoo.com', 'DQ>SzH&K;My&`|8g', 'EE123456', 'Veniam earum vel et. Ipsa repudiandae dolorem corrupti ab modi. Sit pariatur ipsam aliquam dolorem quis repudiandae. Modi ea quia quibusdam dolor est quisquam rerum.', 2, 3, 0, '2022-10-26 13:49:37'),
+('farrell.mozelle', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'claude18@mann.com', 'Yw*aE?', 'EE123456', 'Aut et reprehenderit distinctio facilis. Exercitationem cum cupiditate facere libero ipsum. Doloribus sit est hic ut unde. Atque quibusdam maiores tempora architecto qui. Quos ut qui qui. Atque inventore perspiciatis placeat non autem. Ad corrupti omnis repellendus odio culpa itaque adipisci.', 2, 3, 0, '2022-10-26 13:49:37');
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `books` (
   `isbn` bigint(20) NOT NULL,
   `rating` int(11) NOT NULL,
   `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `issDeleted` tinyint(1) NOT NULL,
+  `isDeleted` tinyint(1) NOT NULL,
   `copyAmount` bigint(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -81,7 +81,7 @@ CREATE TABLE `books` (
 -- Déchargement des données de la table `books`
 --
 
-INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `IsDeleted`, `copyAmount`) VALUES
+INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `isDeleted`, `copyAmount`) VALUES
 ('Harry Potter', 'J.K.R', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5),
 ('Et blanditiis placeat cupiditate pariatur natus consectetur.', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5),
 ('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5),
@@ -115,10 +115,10 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`username`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
 ('kirlin.laurence', 'romaguera.maritza@russel.com', '!EMo79:|2g*8h}', 'EE15469', 'Dolores dignissimos in ut laborum officiis repudiandae. Saepe fugit dolor eius eum voluptatem commodi minima. Delectus veritatis rerum qui dolor. Velit et est cumque repellat quos reprehenderit numquam. Sed ullam sed libero ea voluptatem velit eaque.', 1, 3, 0, '2022-10-26 13:49:37'),
-('adriana48', 'charlotte.farrell@hotmail.com', 'Oi\\rHA0/gGE+dRSv@', 'EE15469', 'Unde dolore blanditiis vero vel velit est ea aperiam. Et dolor commodi et fugit nemo iste deserunt. Numquam quae minima in quo hic. Natus quis minus est.', 1, 3, 0, '2022-10-26 13:49:37'),
+('adriana48', 'charlotte.farrell@hotmail.com', 'OiHA0/gGE+dRSv@', 'EE15469', 'Unde dolore blanditiis vero vel velit est ea aperiam. Et dolor commodi et fugit nemo iste deserunt. Numquam quae minima in quo hic. Natus quis minus est.', 1, 3, 0, '2022-10-26 13:49:37'),
 ('kbogan', 'brooks78@purdy.net', 'QG_KSBf_Z,', 'EE15469', 'Temporibus et dolor natus quasi sed. Voluptas nemo non hic deleniti quasi dolorum modi. Perspiciatis nulla fugiat consectetur laboriosam occaecati. Voluptas et aut dolor inventore.', 1, 3, 0, '2022-10-26 13:49:37'),
-('edyth.frami', 'jacynthe39@franecki.com', 'f-<jJ\'JI=LO?.]?8(uf', 'EE15469', 'Magni et sequi doloribus qui alias at maxime. Nobis vero aut aut ipsa. Nemo rerum molestias distinctio. Minus libero magni tenetur et quasi. Sequi qui cupiditate quia tempore. Tempora amet tenetur dolores dolores voluptatem.', 1, 3, 0, '2022-10-26 13:49:37'),
-('arvid19', 'hermiston.hilda@yahoo.com', 'N3CniC@}`F\\DN:{Fw6', 'EE15469', 'Optio ullam id itaque. Atque mollitia molestiae velit omnis ullam error vero. Dolore doloremque est sed laboriosam pariatur quis. Quia eos omnis dolores aut. Nobis cumque dolores maxime quae unde ullam ea deleniti.', 1, 3, 0, '2022-10-26 13:49:37');
+('edyth.frami', 'jacynthe39@franecki.com', 'f-<jJJI=LO?.]?8(uf', 'EE15469', 'Magni et sequi doloribus qui alias at maxime. Nobis vero aut aut ipsa. Nemo rerum molestias distinctio. Minus libero magni tenetur et quasi. Sequi qui cupiditate quia tempore. Tempora amet tenetur dolores dolores voluptatem.', 1, 3, 0, '2022-10-26 13:49:37'),
+('arvid19', 'hermiston.hilda@yahoo.com', 'N3CniC@}`DN:{Fw6', 'EE15469', 'Optio ullam id itaque. Atque mollitia molestiae velit omnis ullam error vero. Dolore doloremque est sed laboriosam pariatur quis. Quia eos omnis dolores aut. Nobis cumque dolores maxime quae unde ullam ea deleniti.', 1, 3, 0, '2022-10-26 13:49:37');
 
 -- --------------------------------------------------------
 --
@@ -218,7 +218,7 @@ CREATE TABLE `superadmins` (
 -- Déchargement des données de la table `superadmins`
 --
 
-INSERT INTO `superadmins` (`username`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
+INSERT INTO `superadmins` (`username`, `picture`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
 ('superadmin', 'https://via.placeholder.com/640x480.png/003311?text=mollitia', 'superadmin@email.com', '12az55sd', 'EE789654', 'Delectus qui qui porro sed animi sapiente sit. Voluptas veritatis odit hic totam quis. Eaque ea qui voluptate est molestias.', 3, NULL, NULL, '2022-10-26 13:49:37');
 
 

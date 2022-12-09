@@ -5,6 +5,7 @@ import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.models.Admin;
 
+import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,7 +66,9 @@ public class LoginPageController {
                 }
             }
             else {
-                this.switchPage(event, "login-page-error-view.fxml");
+                //this.switchPage(event, "login-page-error-view.fxml");
+                AlertMessage alertMessage=new AlertMessage("Holy Molly!", "", "You do not have an account please sign up first:)");
+                alertMessage.displayWarning();
             }
         }catch (Exception e){
             e.printStackTrace();

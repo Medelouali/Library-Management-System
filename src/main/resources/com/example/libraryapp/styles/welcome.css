@@ -14,11 +14,9 @@
 {
      -fx-text-fill: #191970;
      -fx-underline: true;
-<<<<<<< HEAD
-=======
+
 }
 #error_msg{
     -fx-text-fill: red;
     -fx-font-size: 15px;
->>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
 }
