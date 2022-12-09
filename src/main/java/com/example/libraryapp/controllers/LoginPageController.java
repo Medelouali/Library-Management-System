@@ -6,6 +6,7 @@ import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.models.Admin;
 
 import com.example.libraryapp.utils.AlertMessage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,6 +37,7 @@ public class LoginPageController {
     private PasswordField password;
 
     @FXML
+
     void onBack(ActionEvent event) {
         try{
             this.switchPage(event, "welcome-page-view.fxml");
@@ -70,6 +73,7 @@ public class LoginPageController {
                 AlertMessage alertMessage=new AlertMessage("Holy Molly!", "", "You do not have an account please sign up first:)");
                 alertMessage.displayWarning();
             }
+
         }catch (Exception e){
             e.printStackTrace();
         }

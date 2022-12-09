@@ -16,4 +16,5 @@ public class Admin extends Student {
         super(email, password);
         //we'll add some code later
     }
+
 }

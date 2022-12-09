@@ -21,7 +21,6 @@ public class BookCopyDao implements Dao<BookCopy> {
             ResultSet rs= st.executeQuery(req);
             while(rs.next()){
                 System.out.println("Hii");
-
             }
             conDb.getCon().close();
             return false;

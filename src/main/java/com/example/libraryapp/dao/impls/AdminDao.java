@@ -6,6 +6,7 @@ import com.example.libraryapp.models.Admin;
 
 import com.example.libraryapp.models.Student;
 
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
@@ -36,6 +37,7 @@ public class AdminDao implements Dao<Admin> {
         }catch (Exception ec){
             ec.printStackTrace();
             return false;
+
         }
 
     }
@@ -62,6 +64,7 @@ public class AdminDao implements Dao<Admin> {
             return 0;
         }
     }
+
     @Override
     public Admin getById(long id) {
         return null;

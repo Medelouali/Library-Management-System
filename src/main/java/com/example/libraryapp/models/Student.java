@@ -6,6 +6,11 @@ import java.util.List;
 public class Student {
     public final static long maxBorrowedBooks = 10;
     private long id;
+
+    private String Imgsrc;
+
+    private String intro;
+
     private String username;
     private String email;
     private String password;
@@ -18,6 +23,7 @@ public class Student {
 
     private int isFlagged=0;
 
+    public Student(){}
     public Student(String username, String email, String password, String cin, String description) {
         this.username = username;
         this.email = email;
@@ -32,6 +38,7 @@ public class Student {
     }
 
     public Student(long id, String username, String email, String password, String cin, Date timeStamp, String description, long booksNumber, int privileges, int isFlagged) {
+
         this.id = id;
         this.username = username;
         this.email = email;
@@ -77,11 +84,33 @@ public class Student {
     }
 
 
+
+
+    public int getIsFlagged() {
+        return isFlagged;
+    }
     public int getPrivileges() {
         return privileges;
     }
 
-    public int getIsFlagged() {
-        return isFlagged;
+
+    public void setImgsrc(String imgsrc) {
+        Imgsrc = imgsrc;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public String getImgsrc() {
+        return Imgsrc;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
     }
 }

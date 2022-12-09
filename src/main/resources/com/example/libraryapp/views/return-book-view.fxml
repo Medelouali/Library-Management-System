@@ -93,11 +93,13 @@
                                           <children>
                                              <TextField fx:id="returnStudentNameId" promptText="Student Name">
 
+
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
                                              <TextField fx:id="returnStudentCinId" layoutX="10.0" layoutY="10.0" promptText="Student CIN">
+
 
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -105,11 +107,13 @@
                                              </TextField>
                                              <TextField fx:id="returnBookTitleId" layoutX="10.0" layoutY="10.0" promptText="Book Title">
 
+
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
                                              <TextField fx:id="returnBookAuthorId" layoutX="10.0" layoutY="36.0" promptText="Book Author">
+
 
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -122,17 +126,20 @@
                                              </TextField>
                                              <DatePicker fx:id="returnReturnDateId" prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
 
+
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </DatePicker>
                                              <RadioButton fx:id="returnStateId" mnemonicParsing="false" text="Still In Good State?" />
 
+
                                           </children>
                                        </VBox>
                                        <VBox prefHeight="56.0" prefWidth="443.0">
                                           <children>
                                              <Button fx:id="ReturnBookSubmitId" mnemonicParsing="false" onAction="#onReturnBookSubmit" text="Submit" />
+
 
                                           </children>
                                        </VBox>

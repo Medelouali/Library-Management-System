@@ -5,6 +5,7 @@ module com.example.libraryapp {
     requires java.sql;
     requires mysql.connector.j;
 //    requires dotenv.java;
+
     opens com.example.libraryapp to javafx.fxml;
     exports com.example.libraryapp;
     exports com.example.libraryapp.controllers;

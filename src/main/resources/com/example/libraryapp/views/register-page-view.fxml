@@ -13,6 +13,7 @@
    <children>
       <Label layoutX="276.0" layoutY="27.0" prefHeight="59.0" prefWidth="148.0" style="-fx-alignment: center; -fx-font-size: 38;" text="Register" />
       <ImageView fitHeight="130.0" fitWidth="192.0" layoutX="254.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
             <Image url="@../assets/librarian.jpg" />
          </image>
@@ -27,5 +28,6 @@
       <Hyperlink layoutX="428.0" layoutY="458.0" onAction="#onLoginLink" prefHeight="34.0" prefWidth="214.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Already Have an Account ?" />
       <TextField fx:id="cin" layoutX="165.0" layoutY="348.0" prefHeight="30.0" prefWidth="370.0" promptText="Cin" />
       <TextField fx:id="description" layoutX="165.0" layoutY="391.0" prefHeight="30.0" prefWidth="370.0" promptText="Description" />
+
    </children>
 </AnchorPane>

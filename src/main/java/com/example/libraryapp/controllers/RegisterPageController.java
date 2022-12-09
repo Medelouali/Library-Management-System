@@ -98,6 +98,7 @@ public class RegisterPageController {
         }catch (Exception e){
             AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Something went wrong please try again");
             alertMessage.displayError();
+
             e.printStackTrace();
         }
 
@@ -119,4 +120,5 @@ public class RegisterPageController {
                 .matcher(emailAddress)
                 .matches();
     }
+
 }

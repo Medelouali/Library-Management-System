@@ -19,9 +19,6 @@ public class BookCopy {
         this.isAvailable = availability;
     }
 
-
-
-
     public BookCopy(long id, String state, boolean isAvailable, long studentId, Date borrowingDate, Date returnDate) {
         this.id = id;
         this.state = state;
@@ -35,11 +32,9 @@ public class BookCopy {
         return id;
     }
 
-
     public String getState() {
         return state;
     }
-
 
     public boolean isAvailable() {
         return isAvailable;

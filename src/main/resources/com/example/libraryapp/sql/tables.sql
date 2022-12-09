@@ -74,6 +74,7 @@ CREATE TABLE `books` (
   `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isDeleted` tinyint(1) NOT NULL,
   `copyAmount` bigint(20) NOT NULL DEFAULT 0,
+  `datePub` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -81,12 +82,12 @@ CREATE TABLE `books` (
 -- Déchargement des données de la table `books`
 --
 
-INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `isDeleted`, `copyAmount`) VALUES
-('Harry Potter', 'J.K.R', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5),
-('Et blanditiis placeat cupiditate pariatur natus consectetur.', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5),
-('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5),
-('Perspiciatis culpa natus dolores.', 'Orland Dach', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'dignissimos', 123269512, 5, 'or', 1, 5),
-('Enim non consequatur soluta dolor tempore consequatur nostrum.', 'Miss Abby Cartwright', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'qui', 123269512, 5, 'jv', 0, 5);
+INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `isDeleted`, `copyAmount`, `datePub`) VALUES
+('Harry Potter', 'J.K.R', '/com/example/libraryapp/assets/book3.jpg', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5, "2009"),
+('Et blanditiis placeat cupiditate pariatur natus consectetur.', '/com/example/libraryapp/assets/book4.jpg', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5,  "2010"),
+('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', '/com/example/libraryapp/assets/book3.jpg', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5,  "2011"),
+('Perspiciatis culpa natus dolores.', 'Orland Dach', '/com/example/libraryapp/assets/book1.jpg', 'Fiction,Crime,Psychological', 'dignissimos', 123269512, 5, 'or', 1, 5,  "2002"),
+('Enim non consequatur soluta dolor tempore consequatur nostrum.', 'Miss Abby Cartwright', '/com/example/libraryapp/assets/book4.jpg', 'Fiction,Crime,Psychological', 'qui', 123269512, 5, 'jv', 0, 5,  "2022");
 
 -- --------------------------------------------------------
 

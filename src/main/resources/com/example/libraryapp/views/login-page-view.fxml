@@ -10,6 +10,7 @@
 
 
 <?import javafx.scene.control.PasswordField?>
+
 <AnchorPane fx:id="loginPageID" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.LoginPageController">
    <children>
       <Label layoutX="276.0" layoutY="26.0" prefHeight="59.0" prefWidth="148.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Login" />
@@ -22,6 +23,7 @@
       <TextField fx:id="email" layoutX="165.0" layoutY="274.0" prefHeight="30.0" prefWidth="370.0" promptText="Email" />
       <PasswordField fx:id="password" layoutX="166.0" layoutY="325.0" prefHeight="30.0" prefWidth="370.0" promptText="Password" />
       <Button layoutX="305.0" layoutY="389.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="35.0" prefWidth="90.0" text="Login" />
+
       <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="90.0" text="Back" />
       <Hyperlink layoutX="98.0" layoutY="451.0" onAction="#onGuestLink" prefHeight="34.0" prefWidth="177.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Browe In Guest Mode" />
       <Hyperlink layoutX="424.0" layoutY="451.0" onAction="#onRegisterLink" prefHeight="34.0" prefWidth="192.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Don't have an account ?" />

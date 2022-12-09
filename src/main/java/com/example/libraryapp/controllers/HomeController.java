@@ -7,7 +7,6 @@ import com.example.libraryapp.dao.impls.StudentDao;
 import com.example.libraryapp.models.Book;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,17 +19,27 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HomeController {
     private Stage stage;
+
     private Scene scene;
     private Parent root;
     @FXML
     private Button addCopiesId;
+
+    @FXML
+    protected VBox BookLayout;
+    protected List<Book> Books;
+    @FXML
+    protected VBox StudentLayout;
+    protected List<Student> students;
 
     @FXML
     private Button booksId;
@@ -106,6 +115,7 @@ public class HomeController {
     @FXML
     private HBox vBoxBodyId;
 
+
     @FXML
     void onAddCopies(ActionEvent event) {
         try{
@@ -114,6 +124,7 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+
     @FXML
     void onAddCopiesSubmit(ActionEvent event) {
         System.out.println("Submitting the data:");
@@ -133,6 +144,7 @@ public class HomeController {
         }
         Dao<Book> bookDao=new BookDao();
         ((BookDao)bookDao).addCopies(new Book(7, bookNameId.getText(), copiesToAdd));
+
 
     }
 

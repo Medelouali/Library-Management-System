@@ -24,6 +24,7 @@ public class StudentDao implements Dao<Student> {
             while(rs.next()){
                 System.out.println(rs.getString(1));
 
+
                 System.out.println(rs);
             }
             conDb.getCon().close();
@@ -84,6 +85,7 @@ public class StudentDao implements Dao<Student> {
 
 
     }
+
     @Override
     public Student getById(long id) {
         return null;
