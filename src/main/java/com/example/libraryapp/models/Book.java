@@ -27,15 +27,12 @@ public class Book {
         this.pagesNumber=pagesNumber;
     }
 
-<<<<<<< HEAD
     public Book(long id, String title, long copiesNumber) {
         this.id = id;
         this.title = title;
         this.copiesNumber = copiesNumber;
     }
 
-=======
->>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
     public long getId() {
         return id;
     }

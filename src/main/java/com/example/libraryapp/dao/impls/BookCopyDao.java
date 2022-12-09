@@ -3,7 +3,6 @@ package com.example.libraryapp.dao.impls;
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.BookCopy;
-import com.example.libraryapp.models.Student;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -21,12 +20,8 @@ public class BookCopyDao implements Dao<BookCopy> {
             String req="show databases;";
             ResultSet rs= st.executeQuery(req);
             while(rs.next()){
-<<<<<<< HEAD
                 System.out.println("Hii");
-=======
-                System.out.println("It's working");
-                System.out.println(rs);
->>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
+
             }
             conDb.getCon().close();
             return false;
