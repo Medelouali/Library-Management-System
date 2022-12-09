@@ -89,44 +89,74 @@
                                              </Label>
                                           </children>
                                        </VBox>
+<<<<<<< HEAD
                                        <VBox prefHeight="363.0" prefWidth="443.0" spacing="20.0">
                                           <children>
                                              <TextField fx:id="returnStudentNameId" promptText="Student Name">
+=======
+                                       <VBox prefHeight="272.0" prefWidth="443.0" spacing="20.0">
+                                          <children>
+                                             <TextField promptText="Student Name">
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
+<<<<<<< HEAD
                                              <TextField fx:id="returnStudentCinId" layoutX="10.0" layoutY="10.0" promptText="Student CIN">
+=======
+                                             <TextField layoutX="10.0" layoutY="10.0" promptText="Book Title">
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
+<<<<<<< HEAD
                                              <TextField fx:id="returnBookTitleId" layoutX="10.0" layoutY="10.0" promptText="Book Title">
+=======
+                                             <TextField layoutX="10.0" layoutY="36.0" promptText="Book Author">
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
+<<<<<<< HEAD
                                              <TextField fx:id="returnBookAuthorId" layoutX="10.0" layoutY="36.0" promptText="Book Author">
+=======
+                                             <TextField layoutX="10.0" layoutY="62.0" promptText="ISBN Number">
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
+<<<<<<< HEAD
                                              <TextField fx:id="returnIsbnNumberId" layoutX="10.0" layoutY="62.0" promptText="ISBN Number">
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </TextField>
                                              <DatePicker fx:id="returnReturnDateId" prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
+=======
+                                             <DatePicker prefHeight="24.0" prefWidth="451.0" promptText="Return Date">
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                                 <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                              </DatePicker>
+<<<<<<< HEAD
                                              <RadioButton fx:id="returnStateId" mnemonicParsing="false" text="Still In Good State?" />
+=======
+                                             <RadioButton mnemonicParsing="false" text="Still In Good State?" />
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                           </children>
                                        </VBox>
                                        <VBox prefHeight="56.0" prefWidth="443.0">
                                           <children>
+<<<<<<< HEAD
                                              <Button fx:id="ReturnBookSubmitId" mnemonicParsing="false" onAction="#onReturnBookSubmit" text="Submit" />
+=======
+                                             <Button mnemonicParsing="false" text="Submit" />
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
                                           </children>
                                        </VBox>
                                     </children>

@@ -13,11 +13,25 @@ public class Student {
     private Date timeStamp;
     private String description;
     public long booksNumber;
-    private String privileges;
 
-    private boolean isFlagged;
+    private int privileges;
 
-    public Student(long id, String username, String email, String password, String cin, Date timeStamp, String description, long booksNumber, String privileges, boolean isFlagged) {
+    private int isFlagged=0;
+
+    public Student(String username, String email, String password, String cin, String description) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.cin = cin;
+        this.description = description;
+    }
+    public Student(String email, String password)
+    {
+        this.email=email;
+        this.password= password;
+    }
+
+    public Student(long id, String username, String email, String password, String cin, Date timeStamp, String description, long booksNumber, int privileges, int isFlagged) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -28,11 +42,6 @@ public class Student {
         this.booksNumber = booksNumber;
         this.privileges = privileges;
         this.isFlagged = isFlagged;
-    }
-
-    public Student(String username, String cin) {
-        this.username = username;
-        this.cin = cin;
     }
 
     public long getId() {
@@ -67,11 +76,12 @@ public class Student {
         return booksNumber;
     }
 
-    public String getPrivileges() {
+
+    public int getPrivileges() {
         return privileges;
     }
 
-    public boolean isFlagged() {
+    public int getIsFlagged() {
         return isFlagged;
     }
 }

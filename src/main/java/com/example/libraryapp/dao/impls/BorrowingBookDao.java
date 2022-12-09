@@ -2,17 +2,16 @@ package com.example.libraryapp.dao.impls;
 
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
-import com.example.libraryapp.models.BookCopy;
-import com.example.libraryapp.models.Student;
+import com.example.libraryapp.models.BorrowingBook;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
-public class BookCopyDao implements Dao<BookCopy> {
+public class BorrowingBookDao implements Dao<BorrowingBook> {
 
     @Override
-    public boolean save(BookCopy item) {
+    public boolean save(BorrowingBook item) {
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st ;
@@ -21,12 +20,8 @@ public class BookCopyDao implements Dao<BookCopy> {
             String req="show databases;";
             ResultSet rs= st.executeQuery(req);
             while(rs.next()){
-<<<<<<< HEAD
-                System.out.println("Hii");
-=======
                 System.out.println("It's working");
                 System.out.println(rs);
->>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
             }
             conDb.getCon().close();
             return false;
@@ -38,17 +33,17 @@ public class BookCopyDao implements Dao<BookCopy> {
     }
 
     @Override
-    public BookCopy getById(long id) {
+    public BorrowingBook getById(long id) {
         return null;
     }
 
     @Override
-    public List<BookCopy> getAll() {
+    public List<BorrowingBook> getAll() {
         return null;
     }
 
     @Override
-    public boolean updateById(long id, BookCopy newItem) {
+    public boolean updateById(long id, BorrowingBook newItem) {
         return false;
     }
 

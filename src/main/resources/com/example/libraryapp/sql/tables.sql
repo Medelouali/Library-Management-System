@@ -33,6 +33,7 @@ USE lib;
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -49,11 +50,11 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`username`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
-('derek.reichel', 'yolanda.murphy@gaylord.biz', 't5Z[<.', 'EE123456', 'Laboriosam velit quia quia eligendi deserunt. Ut quis quam sapiente optio qui neque eos veniam. Dolores sequi nisi incidunt dolores distinctio soluta recusandae provident. Earum quam et error ullam distinctio voluptate. Ex sapiente excepturi qui.', 2, 3, 0, '2022-10-26 13:49:37'),
-('wilderman.candido', 'julia72@yahoo.com', 'dr\\Z:aJ+', 'EE123456', 'Aut maxime accusamus dignissimos suscipit ut tempora cumque reiciendis. Et quis aut odio quas quisquam excepturi. Nulla consequatur magnam rerum repudiandae. Voluptatem voluptatem sunt rem deserunt minima sit non. Quas enim nesciunt rerum cumque occaecati quod. Quibusdam magnam recusandae inventore dolores magnam iusto a sunt. Sed dolorem vel est adipisci voluptatem id.', 2, 3, 1, '2022-10-26 13:49:37'),
-('cronin.amelia', 'witting.shaniya@gmail.com', 'AF|%Z\"2w/,+1.lbI', 'EE123456', 'Nesciunt esse ut possimus nemo nulla consectetur. Et adipisci veritatis at. Repudiandae a incidunt et pariatur debitis sit. Molestiae harum voluptatum et neque quia soluta. Recusandae fugit cum mollitia occaecati tempore impedit enim fuga. Ullam corporis labore neque incidunt. Voluptatum tenetur consequuntur incidunt maiores in.', 2, 3, 1, '2022-10-26 13:49:37'),
-('schaden.lowell', 'treutel.okey@yahoo.com', 'DQ2\\>S!\\zH&K;My&`|8g', 'EE123456', 'Veniam earum vel et. Ipsa repudiandae dolorem corrupti ab modi. Sit pariatur ipsam aliquam dolorem quis repudiandae. Modi ea quia quibusdam dolor est quisquam rerum.', 2, 3, 0, '2022-10-26 13:49:37'),
-('farrell.mozelle', 'claude18@mann.com', 'Yw*\'aE?', 'EE123456', 'Aut et reprehenderit distinctio facilis. Exercitationem cum cupiditate facere libero ipsum. Doloribus sit est hic ut unde. Atque quibusdam maiores tempora architecto qui. Quos ut qui qui. Atque inventore perspiciatis placeat non autem. Ad corrupti omnis repellendus odio culpa itaque adipisci.', 2, 3, 0, '2022-10-26 13:49:37');
+('derek.reichel', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'yolanda.murphy@gaylord.biz', 't5Z[<.', 'EE123456', 'Laboriosam velit quia quia eligendi deserunt. Ut quis quam sapiente optio qui neque eos veniam. Dolores sequi nisi incidunt dolores distinctio soluta recusandae provident. Earum quam et error ullam distinctio voluptate. Ex sapiente excepturi qui.', 2, 3, 0, '2022-10-26 13:49:37'),
+('wilderman.candido', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'julia72@yahoo.com', 'dr\\Z:aJ+', 'EE123456', 'Aut maxime accusamus dignissimos suscipit ut tempora cumque reiciendis. Et quis aut odio quas quisquam excepturi. Nulla consequatur magnam rerum repudiandae. Voluptatem voluptatem sunt rem deserunt minima sit non. Quas enim nesciunt rerum cumque occaecati quod. Quibusdam magnam recusandae inventore dolores magnam iusto a sunt. Sed dolorem vel est adipisci voluptatem id.', 2, 3, 1, '2022-10-26 13:49:37'),
+('cronin.amelia', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'witting.shaniya@gmail.com', 'AF|%Z\"2w/,+1.lbI', 'EE123456', 'Nesciunt esse ut possimus nemo nulla consectetur. Et adipisci veritatis at. Repudiandae a incidunt et pariatur debitis sit. Molestiae harum voluptatum et neque quia soluta. Recusandae fugit cum mollitia occaecati tempore impedit enim fuga. Ullam corporis labore neque incidunt. Voluptatum tenetur consequuntur incidunt maiores in.', 2, 3, 1, '2022-10-26 13:49:37'),
+('schaden.lowell', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'treutel.okey@yahoo.com', 'DQ2\\>S!\\zH&K;My&`|8g', 'EE123456', 'Veniam earum vel et. Ipsa repudiandae dolorem corrupti ab modi. Sit pariatur ipsam aliquam dolorem quis repudiandae. Modi ea quia quibusdam dolor est quisquam rerum.', 2, 3, 0, '2022-10-26 13:49:37'),
+('farrell.mozelle', 'https://via.placeholder.com/640x480.png/000033?text=temporibus', 'claude18@mann.com', 'Yw*\'aE?', 'EE123456', 'Aut et reprehenderit distinctio facilis. Exercitationem cum cupiditate facere libero ipsum. Doloribus sit est hic ut unde. Atque quibusdam maiores tempora architecto qui. Quos ut qui qui. Atque inventore perspiciatis placeat non autem. Ad corrupti omnis repellendus odio culpa itaque adipisci.', 2, 3, 0, '2022-10-26 13:49:37');
 
 -- --------------------------------------------------------
 
@@ -64,13 +65,14 @@ INSERT INTO `admins` (`username`, `email`, `password`, `cin`, `description`, `pr
 CREATE TABLE `books` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `edition` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isbn` bigint(20) NOT NULL,
   `rating` int(11) NOT NULL,
   `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `IsDeleted` tinyint(1) NOT NULL,
+  `issDeleted` tinyint(1) NOT NULL,
   `copyAmount` bigint(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -79,12 +81,12 @@ CREATE TABLE `books` (
 -- Déchargement des données de la table `books`
 --
 
-INSERT INTO `books` (`title`, `author`, `genre`, `edition`, `isbn`, `rating`, `language`, `IsDeleted`, `copyAmount`) VALUES
-('Harry Potter', 'J.K.R', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5),
-('Et blanditiis placeat cupiditate pariatur natus consectetur.', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5),
-('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5),
-('Perspiciatis culpa natus dolores.', 'Orland Dach', 'Fiction,Crime,Psychological', 'dignissimos', 123269512, 5, 'or', 1, 5),
-('Enim non consequatur soluta dolor tempore consequatur nostrum.', 'Miss Abby Cartwright', 'Fiction,Crime,Psychological', 'qui', 123269512, 5, 'jv', 0, 5);
+INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `IsDeleted`, `copyAmount`) VALUES
+('Harry Potter', 'J.K.R', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5),
+('Et blanditiis placeat cupiditate pariatur natus consectetur.', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5),
+('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5),
+('Perspiciatis culpa natus dolores.', 'Orland Dach', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'dignissimos', 123269512, 5, 'or', 1, 5),
+('Enim non consequatur soluta dolor tempore consequatur nostrum.', 'Miss Abby Cartwright', 'https://via.placeholder.com/640x480.png/0088aa?text=hic', 'Fiction,Crime,Psychological', 'qui', 123269512, 5, 'jv', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -95,6 +97,7 @@ INSERT INTO `books` (`title`, `author`, `genre`, `edition`, `isbn`, `rating`, `l
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -199,6 +202,7 @@ INSERT INTO `notifications` (`student_id`, `content`, `timeToLive`, `timestamp`,
 CREATE TABLE `superadmins` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -215,7 +219,7 @@ CREATE TABLE `superadmins` (
 --
 
 INSERT INTO `superadmins` (`username`, `email`, `password`, `cin`, `description`, `privileges`, `maxBorrowed`, `flagged`, `timestamp`) VALUES
-('superadmin', 'superadmin@email.com', '12az55sd', 'EE789654', 'Delectus qui qui porro sed animi sapiente sit. Voluptas veritatis odit hic totam quis. Eaque ea qui voluptate est molestias.', 3, NULL, NULL, '2022-10-26 13:49:37');
+('superadmin', 'https://via.placeholder.com/640x480.png/003311?text=mollitia', 'superadmin@email.com', '12az55sd', 'EE789654', 'Delectus qui qui porro sed animi sapiente sit. Voluptas veritatis odit hic totam quis. Eaque ea qui voluptate est molestias.', 3, NULL, NULL, '2022-10-26 13:49:37');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,8 @@
 package com.example.libraryapp.dao.impls;
 
+
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
@@ -21,6 +23,7 @@ public class StudentDao implements Dao<Student> {
             ResultSet rs= st.executeQuery(req);
             while(rs.next()){
                 System.out.println(rs.getString(1));
+
                 System.out.println(rs);
             }
             conDb.getCon().close();
@@ -78,6 +81,7 @@ public class StudentDao implements Dao<Student> {
             e.printStackTrace();
             return "";
         }
+
 
     }
     @Override

@@ -7,6 +7,7 @@ import com.example.libraryapp.dao.impls.StudentDao;
 import com.example.libraryapp.models.Book;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,13 +19,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class HomeController {
     private Stage stage;
@@ -107,16 +106,6 @@ public class HomeController {
     @FXML
     private HBox vBoxBodyId;
     @FXML
-    void onAddCopies(ActionEvent event) {
-        try{
-            this.switchPage(event, "add-copies-view.fxml");
-        }catch (Exception e){
-            e.printStackTrace();
-            //addCopiesSubmit
-        }
-    }
-
-    @FXML
     void onAddCopiesSubmit(ActionEvent event) {
         System.out.println("Submitting the data:");
 
@@ -136,7 +125,6 @@ public class HomeController {
         Dao<Book> bookDao=new BookDao();
         ((BookDao)bookDao).addCopies(new Book(7, bookNameId.getText(), copiesToAdd));
 
-        //generating copies a n x times
     }
 
     @FXML

@@ -1,12 +1,19 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+
+import com.example.libraryapp.dao.impls.AdminDao;
+import com.example.libraryapp.models.Admin;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -19,6 +26,12 @@ public class LoginPageController {
 
     @FXML
     private AnchorPane loginPageID;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private PasswordField password;
 
     @FXML
     void onBack(ActionEvent event) {
@@ -38,7 +51,22 @@ public class LoginPageController {
     @FXML
     void onLogin(ActionEvent event) {
         try{
-            this.switchPage(event, "home-view.fxml");
+
+            String passwordHash = PasswordHash.encrypte(password.getText());
+            Admin s = new Admin(email.getText(),passwordHash);
+            AdminDao dao = new AdminDao();
+            int exists = dao.checkLogin(s);
+            System.out.println(exists);
+            if (exists!=0)
+            {
+                switch (exists) {
+                    case 1 -> this.switchPage(event, "student-home-view.fxml");
+                    case 2, 3 -> this.switchPage(event, "home-view.fxml");
+                }
+            }
+            else {
+                this.switchPage(event, "login-page-error-view.fxml");
+            }
         }catch (Exception e){
             e.printStackTrace();
         }

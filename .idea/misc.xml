@@ -8,8 +8,16 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+<<<<<<< HEAD
 
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 
+=======
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
 </project>

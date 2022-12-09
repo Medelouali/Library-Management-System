@@ -4,6 +4,8 @@ import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Admin;
 
+import com.example.libraryapp.models.Student;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
@@ -17,21 +19,45 @@ public class AdminDao implements Dao<Admin> {
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String req="show databases;";
-            ResultSet rs= st.executeQuery(req);
-            while(rs.next()){
-                System.out.println("It's working");
-                System.out.println(rs);
+
+            String checkStudent = "SELECT COUNT(*) FROM admins WHERE email like '"+item.getEmail()+"';";
+            ResultSet rs = st.executeQuery(checkStudent);
+            rs.next();
+            boolean exists = rs.getInt("COUNT(*)")==0;
+            if (exists){
+                String req="INSERT INTO admins(fullname,email,password,cin,description,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getIsFlagged()+"');";
+                st.executeUpdate(req);
+                conDb.getCon().close();
+                return true;
             }
-            conDb.getCon().close();
-            return false;
+            else {
+                return false;
+            }
         }catch (Exception ec){
             ec.printStackTrace();
-            return true;
+            return false;
         }
 
     }
 
+
+    public int checkLogin(Student item) {
+        ConnectionDB conDb = new ConnectionDB();
+
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req = "SELECT privileges FROM students WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT priveleges FROM admins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"'"+" UNION SELECT privileges FROM superadmins WHERE email like '"+item.getEmail()+"' and password like '"+item.getPassword()+"';";
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            int exists = rs.getInt("privileges");
+            st.close();
+            conDb.getCon().close();
+            return exists;
+        }catch (Exception ec){
+            return 0;
+        }
+    }
     @Override
     public Admin getById(long id) {
         return null;

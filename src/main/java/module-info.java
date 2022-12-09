@@ -3,6 +3,11 @@ module com.example.libraryapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+<<<<<<< HEAD
+=======
+    requires dotenv.java;
+    requires mysql.connector.j;
+>>>>>>> 126240187485abde2285cee03a9f8ae1540ba9b7
 
 
     opens com.example.libraryapp to javafx.fxml;
