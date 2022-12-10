@@ -204,9 +204,7 @@ public class HomeController {
     void onBooks(ActionEvent event) {
         try{
             this.switchPage(event, "books-view.fxml");
-            System.out.println(
-                    "hiii"
-            );
+            System.out.println("Hiii");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -42,7 +42,8 @@ public class WelcomePageController {
     void onLogin(ActionEvent event) {
         try{
             this.switchPage(event, "login-page-view.fxml");
-//            this.switchPage(event, "new-book-view.fxml"); for testing
+            //for testing
+//            this.switchPage(event, "new-book-view.fxml");
         }catch (Exception e){
             e.printStackTrace();
         }
