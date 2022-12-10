@@ -2,11 +2,9 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Book;
-
 import com.example.libraryapp.utils.AlertMessage;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -65,9 +63,8 @@ public class BookController extends HomeController implements Initializable {
             alertMessage.displayWarning();
             return ls;
         }
-
-
-
     }
+
+
 
 }

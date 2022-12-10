@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,38 +13,50 @@
    <children>
       <VBox alignment="CENTER" prefHeight="144.0" prefWidth="125.0">
          <children>
-            <ImageView fx:id="BookImg" fitHeight="114.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/book3.jpg" />
-               </image>
-            </ImageView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="BookTitle" alignment="CENTER" prefHeight="30.0" prefWidth="133.0" text="Rich Dad Poor Dad">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="BookImg" fitHeight="106.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/book3.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
                </children>
             </HBox>
          </children>
       </VBox>
       <VBox prefHeight="159.0" prefWidth="172.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="143.0" prefWidth="172.0">
                <children>
+                  <Label fx:id="BookTitle" alignment="CENTER" prefHeight="16.0" prefWidth="172.0" text="Rich Dad Poor Dad">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="-36.0" />
+                     </padding>
+                  </Label>
                   <HBox prefHeight="86.0" prefWidth="172.0">
                      <children>
-                        <Label fx:id="bookAuthor" prefHeight="98.0" prefWidth="150.0" text="Author : Victor Hugo">
+                        <Label fx:id="bookAuthor" prefHeight="43.0" prefWidth="150.0" text="Author : Victor Hugo">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
                      </children>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="PubYear" alignment="TOP_LEFT" prefHeight="79.0" prefWidth="143.0" text="PubYear : 2009">
+                        <Label fx:id="PubYear" alignment="TOP_LEFT" prefHeight="35.0" prefWidth="143.0" text="PubYear : 2009">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -51,6 +64,9 @@
                      </children>
                   </HBox>
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
@@ -60,8 +76,11 @@
                <children>
                   <Button fx:id="details" mnemonicParsing="false" onAction="#ondetails" prefHeight="52.0" prefWidth="140.0" text="Book's Details">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>

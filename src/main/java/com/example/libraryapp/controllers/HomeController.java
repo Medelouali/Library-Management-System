@@ -3,7 +3,9 @@ package com.example.libraryapp.controllers;
 import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.impls.BookDao;
+import com.example.libraryapp.dao.impls.BookDaoImpl;
 import com.example.libraryapp.dao.impls.StudentDao;
+import com.example.libraryapp.dao.impls.StudentDaoImpl;
 import com.example.libraryapp.models.Book;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
@@ -27,7 +29,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class HomeController {
-    private Stage stage;
+    protected Stage stage;
 
     private Scene scene;
     private Parent root;
@@ -115,6 +117,56 @@ public class HomeController {
     @FXML
     private HBox vBoxBodyId;
 
+    @FXML
+    private TextField newStudentCinId;
+
+    @FXML
+    private TextField newStudentDescriptionId;
+
+    @FXML
+    private TextField newStudentEmailId;
+
+
+    @FXML
+    private TextField newStudentPasswordId;
+
+    @FXML
+    private TextField newStudentUsernameId;
+
+
+
+    @FXML
+    private TextField newBookAuthorId;
+
+    @FXML
+    private TextField newBookGenreId;
+
+    @FXML
+    private TextField newBookTitleId;
+
+    @FXML
+    private TextField newCopiesNumberId;
+
+    @FXML
+    private TextField newDatePubId;
+
+    @FXML
+    private TextField newIsbnId;
+
+    @FXML
+    private TextField newLanguageId;
+
+    @FXML
+    private TextField newRatingId;
+
+
+
+
+
+
+
+
+
 
     @FXML
     void onAddCopies(ActionEvent event) {
@@ -152,6 +204,9 @@ public class HomeController {
     void onBooks(ActionEvent event) {
         try{
             this.switchPage(event, "books-view.fxml");
+            System.out.println(
+                    "hiii"
+            );
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -282,6 +337,38 @@ public class HomeController {
         }
     }
 
+    @FXML
+    void onSaveNewBook(ActionEvent event) {
+        System.out.println("Hii new book");
+        //we ll check for parsing int exception later!
+        try{
+            Book book = new Book(Double.parseDouble(newRatingId.getText()), newBookTitleId.getText(),
+                    newBookAuthorId.getText(), newBookGenreId.getText(), newIsbnId.getText(),
+                    newLanguageId.getText(), Long.parseLong(newCopiesNumberId.getText()), newDatePubId.getText());
+            Dao<Book> da = new BookDaoImpl();
+            da.save(book);
+        }catch (Exception e){
+            AlertMessage alertMessage=new AlertMessage("Whoops:(", "", "The rating should be a decimal value like 2.5, please try again");
+            alertMessage.displayWarning();
+        }
+
+    }
+
+    @FXML
+    void onSaveNewStudent(ActionEvent event) {
+        System.out.println("Hii New Student");
+        Student student = new Student(newStudentUsernameId.getText(),
+                newStudentEmailId.getText(), newStudentPasswordId.getText(),
+                newStudentCinId.getText(), newStudentDescriptionId.getText());
+        Dao<Student> dao = new StudentDaoImpl();
+        if ( ((StudentDaoImpl)dao).validateEmail(student)){
+            dao.save(student);
+        }else{
+            AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Wrong email, please enter a valid one");
+            alertMessage.displayWarning();
+        }
+    }
+
     public void switchPage(ActionEvent event, String pageName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
@@ -291,5 +378,7 @@ public class HomeController {
         stage.setHeight(550);
         stage.show();
     }
+
+
 
 }

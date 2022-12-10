@@ -33,7 +33,7 @@
                <children>
                   <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#onprofile" prefHeight="31.0" prefWidth="110.0" text="Profile">
                      <font>
-                        <Font size="15.0" />
+                        <Font />
                      </font>
                   </Button>
                </children>
@@ -42,7 +42,7 @@
                <children>
                   <Button fx:id="DeleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ondelete" prefHeight="31.0" prefWidth="110.0" stylesheets="@../styles/home.css" text="Delete">
                      <font>
-                        <Font size="15.0" />
+                        <Font />
                      </font>
                   </Button>
                </children>

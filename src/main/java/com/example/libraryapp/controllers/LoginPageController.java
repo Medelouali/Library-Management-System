@@ -69,7 +69,6 @@ public class LoginPageController {
                 }
             }
             else {
-                //this.switchPage(event, "login-page-error-view.fxml");
                 AlertMessage alertMessage=new AlertMessage("Holy Molly!", "", "You do not have an account please sign up first:)");
                 alertMessage.displayWarning();
             }

@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="500.0" prefWidth="700.0" spacing="20.0" stylesheets="@../styles/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.HomeController">
     <padding>
@@ -41,7 +42,7 @@
             <Insets />
         </VBox.margin>
     </HBox>
-    <HBox layoutX="30.0" layoutY="30.0" spacing="43.0" fx:id="vBoxBodyId">
+    <HBox fx:id="vBoxBodyId" layoutX="30.0" layoutY="30.0" spacing="43.0">
         <children>
             <VBox fillWidth="false" prefHeight="424.0" prefWidth="148.0" spacing="200.0">
                 <children>
@@ -75,7 +76,68 @@
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="466.0">
                                         <children>
-                                            <Text fx:id="browserId" layoutX="45.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Student Browser Area" />
+                                            <VBox layoutX="-1.0" prefHeight="375.0" prefWidth="453.0">
+                                                <children>
+                                                    <VBox prefHeight="38.0" prefWidth="443.0">
+                                                        <children>
+                                                            <Label text="New Student" textFill="#2b10c3">
+                                                                <font>
+                                                                    <Font size="16.0" />
+                                                                </font>
+                                                            </Label>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox prefHeight="363.0" prefWidth="443.0" spacing="20.0">
+                                                        <children>
+                                                            <TextField fx:id="newStudentUsernameId" promptText="Username">
+
+
+                                                                <padding>
+                                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                </padding>
+                                                            </TextField>
+                                                            <TextField fx:id="newStudentEmailId" layoutX="10.0" layoutY="10.0" promptText="Email">
+
+
+                                                                <padding>
+                                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                </padding>
+                                                            </TextField>
+                                                            <TextField fx:id="newStudentPasswordId" layoutX="10.0" layoutY="10.0" promptText="Password">
+
+
+                                                                <padding>
+                                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                </padding>
+                                                            </TextField>
+                                                            <TextField fx:id="newStudentCinId" layoutX="10.0" layoutY="36.0" promptText="Cin">
+
+
+                                                                <padding>
+                                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                </padding>
+                                                            </TextField>
+                                                            <TextField fx:id="newStudentDescriptionId" layoutX="10.0" layoutY="62.0" promptText="Description">
+                                                                <padding>
+                                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                </padding>
+                                                            </TextField>
+
+
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox prefHeight="56.0" prefWidth="443.0">
+                                                        <children>
+                                                            <Button fx:id="ReturnBookSubmitId" mnemonicParsing="false" onAction="#onSaveNewStudent" text="Submit" />
+
+
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                                <padding>
+                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                </padding>
+                                            </VBox>
                                         </children>
                                     </AnchorPane>
                                 </content>
