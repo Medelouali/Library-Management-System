@@ -1,5 +1,6 @@
 package com.example.libraryapp;
 
+import com.example.libraryapp.dao.db.ConnectionDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,6 +22,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        //ConnectionDB cnx=new ConnectionDB();
 
         launch();
     }

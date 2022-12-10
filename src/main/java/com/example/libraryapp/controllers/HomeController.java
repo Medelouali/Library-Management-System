@@ -3,8 +3,10 @@ package com.example.libraryapp.controllers;
 import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.impls.BookDao;
+import com.example.libraryapp.dao.impls.BorrowingsDao;
 import com.example.libraryapp.dao.impls.StudentDao;
 import com.example.libraryapp.models.Book;
+import com.example.libraryapp.models.Borrowings;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
@@ -24,7 +26,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
+
 
 public class HomeController {
     private Stage stage;
@@ -112,8 +119,22 @@ public class HomeController {
     @FXML
     private TextField returnStudentNameId;
 
+    // --------- Issue Book Element ---------- //
+    @FXML
+    private Button IssueBookSubmitId;
+    @FXML
+    private DatePicker issueBorrowDateId;
+    @FXML
+    private TextField issueCinStudentId;
+    @FXML
+    private TextField issueIsbnNumberId;
+    @FXML
+    private DatePicker issueReturnDateId;
+    // ------------------------------------- //
+
     @FXML
     private HBox vBoxBodyId;
+
 
 
     @FXML
@@ -165,6 +186,30 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+    // -----  button Issue Book Submit ----- //
+    @FXML
+    void onIssueBookSubmit(ActionEvent event) {
+        System.out.println("Sub btn is Working ");
+        int isbn= Integer.parseInt(issueIsbnNumberId.getText());
+        System.out.println("issueIsbnNumberId: " +isbn);
+        int cin= Integer.parseInt(issueIsbnNumberId.getText());
+        System.out.println("issueCinStudentId: " +cin);
+
+        String BrDate = issueBorrowDateId.getEditor().getText();
+        System.out.println("issueBorrowDateId: " +BrDate);
+
+        String RtDate = issueBorrowDateId.getEditor().getText();
+        System.out.println("issueReturnDateId: " + RtDate);
+        int guest=13;
+        System.out.println(guest);
+
+        //BorrowingsDao DaoBr=new BorrowingsDao();
+        //Borrowings Br=new Borrowings(2,isbn,cin,guest,issueBorrowDateId.getEditor().getText(),issueReturnDateId.getEditor().getText())
+
+
+
+    }
+    // ------------------------------------ //
 
     @FXML
     void onLogout(ActionEvent event) {
