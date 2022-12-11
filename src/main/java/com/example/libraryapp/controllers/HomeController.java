@@ -68,7 +68,7 @@ public class HomeController {
     private Button searchButtonId;
 
     @FXML
-    private TextField searchId;
+    protected TextField searchId;
 
     @FXML
     private TextField bookNameId;
