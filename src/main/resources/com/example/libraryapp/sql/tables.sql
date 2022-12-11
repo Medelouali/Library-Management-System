@@ -7,6 +7,7 @@
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -33,7 +34,7 @@ USE lib;
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `picture` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT '/com/example/libraryapp/assets/book3.jpg',
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -65,7 +66,7 @@ INSERT INTO `admins` (`username`, `picture`, `email`, `password`, `cin`, `descri
 CREATE TABLE `books` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `picture` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT '/com/example/libraryapp/assets/book3.jpg',
   `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `edition` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -84,7 +85,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `rating`, `language`, `isDeleted`, `copyAmount`, `datePub`) VALUES
 ('Harry Potter', 'J.K.R', '/com/example/libraryapp/assets/book3.jpg', 'Fiction,Crime,Psychological', 'eveniet', 123269512, 5, 'mi', 1, 5, "2009"),
-('Et blanditiis placeat cupiditate pariatur natus consectetur.', '/com/example/libraryapp/assets/book4.jpg', 'Dr. Nico Lehner', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5,  "2010"),
+('Et blanditiis placeat cupiditate pariatur natus consectetur.', 'dr Nico', '/com/example/libraryapp/assets/book4.jpg', 'Fiction,Crime,Psychological', 'dolorem', 123269512, 5, 'gd', 0, 5,  "2010"),
 ('Beatae voluptatem possimus rerum est quos ut.', 'Billy Lebsack', '/com/example/libraryapp/assets/book3.jpg', 'Fiction,Crime,Psychological', 'at', 123269512, 5, 'ch', 1, 5,  "2011"),
 ('Perspiciatis culpa natus dolores.', 'Orland Dach', '/com/example/libraryapp/assets/book1.jpg', 'Fiction,Crime,Psychological', 'dignissimos', 123269512, 5, 'or', 1, 5,  "2002"),
 ('Enim non consequatur soluta dolor tempore consequatur nostrum.', 'Miss Abby Cartwright', '/com/example/libraryapp/assets/book4.jpg', 'Fiction,Crime,Psychological', 'qui', 123269512, 5, 'jv', 0, 5,  "2022");
@@ -98,7 +99,7 @@ INSERT INTO `books` (`title`, `author`, `picture`, `genre`, `edition`, `isbn`, `
 CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `picture` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT '/com/example/libraryapp/assets/profile.png',
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -203,7 +204,7 @@ INSERT INTO `notifications` (`student_id`, `content`, `timeToLive`, `timestamp`,
 CREATE TABLE `superadmins` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `picture` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT '/com/example/libraryapp/assets/book3.jpg',
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
