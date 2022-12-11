@@ -222,6 +222,7 @@ public class HomeController {
     @FXML
     void onLogout(ActionEvent event) {
         try{
+            Main.unsetUser();
             this.switchPage(event, "welcome-page-view.fxml");
         }catch (Exception e){
             e.printStackTrace();

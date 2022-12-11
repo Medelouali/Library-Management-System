@@ -33,7 +33,7 @@ public class WelcomePageController {
     @FXML
     void onGuest(ActionEvent event) {
         try{
-            this.switchPage(event, "add-copies-view.fxml");
+            this.switchPage(event, "guest-home-view.fxml");
         }catch (Exception e){
             e.printStackTrace();
         }

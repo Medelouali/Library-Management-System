@@ -64,6 +64,12 @@ public class Book {
 
     }
 
+    public Book(String title, String authorName, String imgSrc,String datePub) {
+        this.imgSrc = imgSrc;
+        this.title = title;
+        this.authorName = authorName;
+        this.datePub = datePub;
+    }
 
     public long getId() {
         return id;

@@ -43,25 +43,25 @@ public class AdminDao implements Dao<Admin> {
     }
 
 
-    public int checkLogin(Student item) {
+    public Admin checkLogin(Student item) {
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st;
         try {
             st = conDb.getCon().createStatement();
-            String req = "SELECT privileges FROM students WHERE email like '"
+            String req = "SELECT id,username,privileges FROM students WHERE email like '"
                     +item.getEmail()+"' and password like '"+item.getPassword()+"'"+
-                    " UNION SELECT privileges FROM admins WHERE email like '"+item.getEmail()+
-                    "' and password like '"+item.getPassword()+"'"+" UNION SELECT privileges FROM superadmins WHERE email like '"+
+                    " UNION SELECT id,username,privileges FROM admins WHERE email like '"+item.getEmail()+
+                    "' and password like '"+item.getPassword()+"'"+" UNION SELECT id,username,privileges FROM superadmins WHERE email like '"+
                     item.getEmail()+"' and password like '"+item.getPassword()+"';";
             ResultSet rs = st.executeQuery(req);
             rs.next();
-            int exists = rs.getInt("privileges");
+            Admin admin = new Admin(rs.getInt("id"),rs.getString("username"),rs.getInt("privileges"));
             st.close();
             conDb.getCon().close();
-            return exists;
+            return admin;
         }catch (Exception ec){
-            return 0;
+            return new Admin(0,"",0);
         }
     }
 

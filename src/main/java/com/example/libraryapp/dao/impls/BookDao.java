@@ -113,11 +113,51 @@ public class BookDao implements Dao<Book> {
 
     }
 
+    public List<Book> getBorrowedBooks(long id) {
+        ConnectionDB conDb = new ConnectionDB();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req="SELECT * FROM borrowings WHERE student_id like '"+id+"';";
+            ResultSet rs= st.executeQuery(req);
+            List<Book> bookList= new ArrayList<>();
+            while (rs.next())
+            {
+                bookList.add(getById(rs.getInt("copy_id")));
+            }
+            for(Book b : bookList)
+            {
+                System.out.println(b.getTitle());
+                System.out.println(b.getAuthorName());
+                System.out.println(b.getDatePub());
+            }
+            conDb.getCon().close();
+            return bookList;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            return null;
+        }
+
+    }
+
 
 
     @Override
     public Book getById(long id) {
-        return null;
+        ConnectionDB conDb = new ConnectionDB();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req="SELECT * FROM books WHERE id like '"+id+"';";
+            ResultSet rs= st.executeQuery(req);
+            rs.next();
+            Book book = new Book(rs.getString("title"),rs.getString("author"),rs.getString("picture"),rs.getString("datePub"));
+            conDb.getCon().close();
+            return book;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            return null;
+        }
     }
 
     @Override

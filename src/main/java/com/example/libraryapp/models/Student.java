@@ -50,11 +50,15 @@ public class Student {
         this.privileges = privileges;
         this.isFlagged = isFlagged;
     }
+    public Student(long id, String username, int privileges) {
+        this.id = id;
+        this.username = username;
+        this.privileges = privileges;
+    }
 
     public long getId() {
         return id;
     }
-
     public String getUsername() {
         return username;
     }
@@ -112,5 +116,23 @@ public class Student {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", Imgsrc='" + Imgsrc + '\'' +
+                ", intro='" + intro + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", cin='" + cin + '\'' +
+                ", timeStamp=" + timeStamp +
+                ", description='" + description + '\'' +
+                ", booksNumber=" + booksNumber +
+                ", privileges=" + privileges +
+                ", isFlagged=" + isFlagged +
+                '}';
     }
 }

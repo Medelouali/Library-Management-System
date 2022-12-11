@@ -17,4 +17,10 @@ public class Admin extends Student {
         //we'll add some code later
     }
 
+    public Admin() {
+    }
+
+    public Admin(long id, String username, int privileges) {
+        super(id, username, privileges);
+    }
 }

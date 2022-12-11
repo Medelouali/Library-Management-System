@@ -57,12 +57,12 @@ public class LoginPageController {
         try{
 
             String passwordHash = PasswordHash.encrypte(password.getText());
-            Admin s = new Admin(email.getText(),passwordHash);
             AdminDao dao = new AdminDao();
-            int exists = dao.checkLogin(s);
-            System.out.println(exists);
+            Admin admin = dao.checkLogin(new Admin(email.getText(),passwordHash));
+            int exists = admin.getPrivileges();
             if (exists!=0)
             {
+                Main.setUser(admin);
                 switch (exists) {
                     case 1 -> this.switchPage(event, "student-home-view.fxml");
                     case 2, 3 -> this.switchPage(event, "home-view.fxml");
