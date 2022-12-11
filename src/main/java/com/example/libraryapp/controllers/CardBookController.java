@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class CardBookController {
     private Stage stage;
@@ -61,7 +62,7 @@ public class CardBookController {
     }
 
         public void SetData(Book book){
-            Image image= new Image(getClass().getResourceAsStream(book.getImgSrc()));
+            Image image= new Image(Objects.requireNonNull(getClass().getResourceAsStream(book.getImgSrc())));
             BookImg.setImage(image);
             BookTitle.setText(book.getTitle());
             PubYear.setText("PubYear : "+book.getDatePub());

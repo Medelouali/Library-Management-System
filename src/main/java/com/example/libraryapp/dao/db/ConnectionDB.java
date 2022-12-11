@@ -22,7 +22,7 @@ public class ConnectionDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 //            this.connection = DriverManager.getConnection("jdbc:"+env.con+"://"+env.host+":"+env.port+"/"+env.db+"?useSSL=false&allowPublicKeyRetrieval=true", env.user, env.pwd);
-            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lib?useSSL=false&allowPublicKeyRetrieval=true", "debian-sys-maint", "ScZ1GuNlUrQC5f36");
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lib?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
 
 
             System.out.println("Connection OK");
