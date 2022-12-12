@@ -188,24 +188,36 @@ public class HomeController {
     }
     // -----  button Issue Book Submit ----- //
     @FXML
-    void onIssueBookSubmit(ActionEvent event) {
+    void onIssueBookSubmit(ActionEvent event) throws Exception{
+        // -------------- just to see if there's a return ------------------- //
         System.out.println("Sub btn is Working ");
-        int isbn= Integer.parseInt(issueIsbnNumberId.getText());
+        int isbn= Integer.parseInt(issueIsbnNumberId.getText());//isbn of the book
         System.out.println("issueIsbnNumberId: " +isbn);
-        int cin= Integer.parseInt(issueIsbnNumberId.getText());
+        int cin= Integer.parseInt(issueCinStudentId.getText());//cin of the student
         System.out.println("issueCinStudentId: " +cin);
 
-        String BrDate = issueBorrowDateId.getEditor().getText();
-        System.out.println("issueBorrowDateId: " +BrDate);
+        String BrDate = issueBorrowDateId.getEditor().getText();//date of borrow
+        //edit date from dd/mm/yyyy to yyyy-mm-dd
+        String BrDateForm= String.valueOf(BrDate.charAt(6))+String.valueOf(BrDate.charAt(7))+String.valueOf(BrDate.charAt(8))+String.valueOf(BrDate.charAt(9))+"-"+String.valueOf(BrDate.charAt(3))+String.valueOf(BrDate.charAt(4))+"-"+String.valueOf(BrDate.charAt(0))+String.valueOf(BrDate.charAt(1));
+        System.out.println(BrDateForm);
 
-        String RtDate = issueBorrowDateId.getEditor().getText();
-        System.out.println("issueReturnDateId: " + RtDate);
-        int guest=13;
+
+
+        String RtDate = issueReturnDateId.getEditor().getText();//date of return
+        //edit date from dd/mm/yyyy to yyyy-mm-dd
+        String RtDateForm= String.valueOf(RtDate.charAt(6))+String.valueOf(RtDate.charAt(7))+String.valueOf(RtDate.charAt(8))+String.valueOf(RtDate.charAt(9))+"-"+String.valueOf(RtDate.charAt(3))+String.valueOf(RtDate.charAt(4))+"-"+String.valueOf(RtDate.charAt(0))+String.valueOf(RtDate.charAt(1));
+        System.out.println(RtDateForm);
+
+        int guest=1;//just for rn until we will have other user we gonna edit it
         System.out.println(guest);
+        //------------------------------------------------------------------//
 
-        //BorrowingsDao DaoBr=new BorrowingsDao();
-        //Borrowings Br=new Borrowings(2,isbn,cin,guest,issueBorrowDateId.getEditor().getText(),issueReturnDateId.getEditor().getText())
 
+        // the connection to BD and save into DB //
+        BorrowingsDao DaoBr=new BorrowingsDao();
+        Borrowings Br=new Borrowings(2,isbn,cin,guest,BrDateForm,RtDateForm);
+        Boolean h= DaoBr.save(Br);
+        // ------------------------------------ //
 
 
     }

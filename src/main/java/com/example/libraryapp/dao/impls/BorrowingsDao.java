@@ -18,19 +18,20 @@ public class BorrowingsDao implements Dao<Borrowings> {
         Statement st;
         try {
             st = conDb.getCon().createStatement();
-            //String req="show databases;";
-            String req="INSERT INTO borrowings VALUES('"+item.getId()+"','"+item.getCopyId()+"','"+item.getStudentId()+"',"+item.getAdminId()+","+item.getBorrowingDate()+","+item.getReturnDate()+")";
-            ResultSet rs= st.executeQuery(req);
-            while(rs.next()){
-                System.out.println("It's working");
-                System.out.println(rs);
-            }
+            String req="INSERT INTO `borrowings` (`student_id`, `copy_id`, `admin_id`, `borrowingDate`, `returnDate`)  VALUES('"+item.getStudentId()+"','"+item.getCopyId()+"','"+item.getAdminId()+"','"+item.getBorrowingDate()+"','"+item.getReturnDate()+"');";
+
+            System.out.println(req);
+            //st.executeQuery(req);
+            st.executeUpdate(req);
+
             conDb.getCon().close();
             return false;
         }catch (Exception ec){
             ec.printStackTrace();
             return true;
         }
+
+
 
     }
 
