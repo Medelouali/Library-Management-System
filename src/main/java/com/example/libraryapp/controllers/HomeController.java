@@ -37,6 +37,8 @@ public class HomeController {
     private Button addCopiesId;
 
     @FXML
+    protected VBox TransactionsLayout;
+    @FXML
     protected VBox BookLayout;
     protected List<Book> Books;
     @FXML

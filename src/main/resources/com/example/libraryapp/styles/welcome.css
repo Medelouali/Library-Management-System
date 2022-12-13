@@ -21,3 +21,7 @@
     -fx-font-size: 15px;
 
 }
+
+#transactionCardId{
+    -fx-background-color: #C9FFF3;
+}

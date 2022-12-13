@@ -3,7 +3,6 @@ package com.example.libraryapp;
 import com.example.libraryapp.models.Admin;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.AmbientLight;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -32,7 +31,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setWidth(700);
         stage.setHeight(550);
-
+        stage.setResizable(false);
         stage.show();
 
     }
