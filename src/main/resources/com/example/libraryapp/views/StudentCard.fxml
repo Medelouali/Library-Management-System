@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.StudentCard">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.StudentCard">
    <children>
       <HBox fx:id="Box" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -29,22 +29,22 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="99.0" prefWidth="147.0" stylesheets="@../styles/home.css">
+            <HBox alignment="CENTER" prefHeight="71.0" prefWidth="764.0">
                <children>
-                  <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#onprofile" prefHeight="31.0" prefWidth="110.0" text="Profile">
-                     <font>
-                        <Font />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="99.0" prefWidth="140.0">
-               <children>
-                  <Button fx:id="DeleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ondelete" prefHeight="31.0" prefWidth="110.0" stylesheets="@../styles/home.css" text="Delete">
-                     <font>
-                        <Font />
-                     </font>
-                  </Button>
+                  <HBox alignment="CENTER" prefHeight="71.0" prefWidth="400.0" spacing="20.0" stylesheets="@../styles/home.css">
+                     <children>
+                        <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#onprofile" prefHeight="31.0" prefWidth="110.0" text="Profile">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                        <Button fx:id="DeleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ondelete" prefHeight="31.0" prefWidth="110.0" stylesheets="@../styles/home.css" text="Delete">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
          </children>

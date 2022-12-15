@@ -5,18 +5,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="welcomeID" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.WelcomePageController">
+<AnchorPane fx:id="welcomeID" prefHeight="600.0" prefWidth="1034.0" style="-fx-background-color: white;" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.WelcomePageController">
    <children>
-      <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="258.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="312.0">
+      <ImageView fitHeight="134.0" fitWidth="126.0" layoutX="468.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="440.0">
          <image>
             <Image url="@../assets/books.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="registerID" layoutX="74.0" layoutY="405.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="35.0" prefWidth="90.0" text="Register" />
-      <Button fx:id="loginID" layoutX="307.0" layoutY="405.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="35.0" prefWidth="90.0" text="Login" />
-      <Button fx:id="guestID" layoutX="539.0" layoutY="405.0" mnemonicParsing="false" onAction="#onGuest" prefHeight="35.0" prefWidth="90.0" text="Guest" />
-      <Label layoutX="167.0" layoutY="43.0" prefHeight="59.0" prefWidth="370.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Marrakech's Library " />
-      <Label layoutX="167.0" layoutY="263.0" prefHeight="59.0" prefWidth="370.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Read &amp; Grow" />
+      <Button fx:id="registerID" layoutX="143.0" layoutY="381.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20;" text="Register" />
+      <Button fx:id="loginID" layoutX="458.0" layoutY="385.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20;" text="Login" />
+      <Button fx:id="guestID" layoutX="779.0" layoutY="385.0" mnemonicParsing="false" onAction="#onGuest" prefHeight="40.0" prefWidth="160.0" style="-fx-background-radius: 20;" text="Guest" />
+      <Label layoutX="231.0" layoutY="31.0" prefHeight="59.0" prefWidth="600.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Marrakech's Library ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="350.0" layoutY="283.0" prefHeight="59.0" prefWidth="370.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Read &amp; Grow" />
    </children>
 </AnchorPane>

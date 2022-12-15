@@ -41,9 +41,9 @@ public class WelcomePageController {
     @FXML
     void onLogin(ActionEvent event) {
         try{
-            this.switchPage(event, "login-page-view.fxml");
+//            this.switchPage(event, "login-page-view.fxml");
             //for testing
-//            this.switchPage(event, "new-book-view.fxml");
+            this.switchPage(event, "home-view.fxml");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -62,8 +62,8 @@ public class WelcomePageController {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setWidth(700);
-        stage.setHeight(550);
+        stage.setWidth(1034);
+        stage.setHeight(600);
         stage.show();
     }
 }
