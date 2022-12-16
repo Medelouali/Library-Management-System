@@ -159,15 +159,6 @@ public class HomeController {
     @FXML
     private TextField newRatingId;
 
-
-
-
-
-
-
-
-
-
     @FXML
     void onAddCopies(ActionEvent event) {
         try{
@@ -202,9 +193,13 @@ public class HomeController {
 
     @FXML
     void onBooks(ActionEvent event) {
+        int privileges = Main.getUser().getPrivileges();
         try{
-            this.switchPage(event, "books-view.fxml");
-            System.out.println("Hiii");
+            switch (privileges){
+                case 1 -> this.switchPage(event, "student-book-view.fxml");
+                case 2, 3 -> this.switchPage(event, "books-view.fxml");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -294,12 +289,25 @@ public class HomeController {
     @FXML
     void onSearch(ActionEvent event) {
         try{
-            this.switchPage(event, "search-view.fxml");
+            int privileges = Main.getUser().getPrivileges();
+            switch (privileges) {
+                case 1 -> {
+                    StudentSearchPageController.setSearchField(searchId.getText());
+                    this.switchPage(event, "student-search-view.fxml");
+                }
+                case 2, 3 -> {
+                    SearchController.setSearchField(searchId.getText());
+                    this.switchPage(event, "search-view.fxml");
+                }
+                default -> {
+                    SearchController.setSearchField(searchId.getText());
+                    this.switchPage(event, "guest-search-view.fxml");
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-
     @FXML
     void onSettings(ActionEvent event) {
         try{
