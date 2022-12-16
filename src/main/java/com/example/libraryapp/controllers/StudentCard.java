@@ -1,6 +1,8 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
+import com.example.libraryapp.dao.Dao;
+import com.example.libraryapp.dao.impls.StudentDaoImpl;
 import com.example.libraryapp.models.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StudentCard {
+public class StudentCard{
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -48,22 +50,17 @@ public class StudentCard {
             e.printStackTrace();
         }}
     @FXML
-    void ondelete(ActionEvent event) {
-
-            try{
-                this.switchPage(event, "home-view.fxml");
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-
+    void onDelete(ActionEvent event) {
+        Dao<Student> dao=new StudentDaoImpl();
+        ((StudentDaoImpl)(dao)).deleteByUsername(studentName.getText());
     }
     public void switchPage(ActionEvent event, String pageName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setWidth(700);
-        stage.setHeight(550);
+        stage.setWidth(1034);
+        stage.setHeight(600);
         stage.show();
     }
 

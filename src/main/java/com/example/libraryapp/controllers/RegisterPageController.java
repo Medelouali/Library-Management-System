@@ -109,8 +109,8 @@ public class RegisterPageController {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setWidth(700);
-        stage.setHeight(550);
+        stage.setWidth(1034);
+        stage.setHeight(600);
         stage.show();
     }
 

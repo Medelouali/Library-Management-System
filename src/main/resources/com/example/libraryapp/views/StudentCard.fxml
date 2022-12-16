@@ -38,7 +38,7 @@
                               <Font />
                            </font>
                         </Button>
-                        <Button fx:id="DeleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ondelete" prefHeight="31.0" prefWidth="110.0" stylesheets="@../styles/home.css" text="Delete">
+                        <Button fx:id="DeleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onDelete" prefHeight="31.0" prefWidth="110.0" stylesheets="@../styles/home.css" text="Delete">
                            <font>
                               <Font />
                            </font>

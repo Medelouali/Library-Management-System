@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="registerPageID" prefHeight="600.0" prefWidth="1034.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.RegisterPageController">
    <children>
-      <VBox layoutX="258.0" layoutY="36.0" prefHeight="502.0" prefWidth="560.0" spacing="30.0" style="-fx-background-color: white;">
+      <VBox layoutX="228.0" layoutY="50.0" prefHeight="502.0" prefWidth="560.0" spacing="30.0" style="-fx-background-color: white;">
          <children>
             <Label prefHeight="59.0" prefWidth="400.0" style="-fx-alignment: center; -fx-font-size: 38;" stylesheets="@../styles/welcome.css" text="Hello, Welcome">
                <VBox.margin>

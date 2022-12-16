@@ -85,6 +85,35 @@ public class StudentDaoImpl implements Dao<Student> {
         }
 
     }
+    //usernames are unique in the app, before we regsiter a student we make a test
+    //if the student with that username is already exists
+    public void deleteByUsername(String username){
+        ConnectionDB conDb = new ConnectionDB();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            // no need to delete from borrowings...because we are using on Cascade in db on
+            // deleting records in those tables, check tables plz for more info
+            String statement="delete from students where username='"+ username +"';";
+            int rs=st.executeUpdate(statement);
+            if(rs<1){
+                AlertMessage alertMessage=new AlertMessage("Whoops:(", "", "Sorry! "+
+                        username+" couldn't be deleted try later please!");
+                alertMessage.displayWarning();
+                return;
+            }
+
+            AlertMessage alertMessage=new AlertMessage("Congrats:)", "", "Yoo! "+
+                        username+" has been deleted successfully");
+                alertMessage.displayWarning();
+            conDb.getCon().close();
+        }catch (Exception ec){
+            ec.printStackTrace();
+            AlertMessage alertMessage=new AlertMessage("Whoops:(", "", "Sorry! "+
+                    username+" couldn't be deleted try later please!");
+            alertMessage.displayWarning();
+        };
+    }
 
 
 
