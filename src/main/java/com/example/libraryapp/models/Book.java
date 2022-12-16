@@ -20,7 +20,11 @@ public class Book {
     private long copiesNumber;
     private long pagesNumber;
     private String datePub;
-
+    public Book(String language, long copiesNumber,double rating) {
+        this.rating = rating;
+        this.language = language;
+        this.copiesNumber = copiesNumber;
+    }
     public Book(double rating, String title, String authorName, String genre, String isbn, String language, long copiesNumber, String datePub) {
         this.rating = rating;
         this.title = title;

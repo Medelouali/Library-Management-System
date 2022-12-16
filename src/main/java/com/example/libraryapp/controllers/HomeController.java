@@ -313,7 +313,7 @@ public class HomeController {
     @FXML
     void onStatistics(ActionEvent event) {
         try{
-            this.switchPage(event, "statistics-view.fxml");
+            this.switchPage(event, "statistics-books-view.fxml");
         }catch (Exception e){
             e.printStackTrace();
         }

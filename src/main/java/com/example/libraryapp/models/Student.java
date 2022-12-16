@@ -1,7 +1,6 @@
 package com.example.libraryapp.models;
 
 import java.sql.Date;
-import java.util.List;
 
 public class Student {
     public final static long maxBorrowedBooks = 10;
@@ -24,6 +23,12 @@ public class Student {
     private int isFlagged=0;
 
     public Student(){}
+    public Student(String username, String cin, long booksNumber) {
+        this.username = username;
+        this.cin = cin;
+        this.booksNumber = booksNumber;
+    }
+
     public Student(String username, String email, String password, String cin, String description) {
         this.username = username;
         this.email = email;
