@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="transactionCardId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="460.0" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.TransactionController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="144.0" prefWidth="125.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fx:id="transBookImgId" fitHeight="106.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/book3.jpg" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox prefHeight="144.0" prefWidth="377.0">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="356.0" spacing="20.0">
+               <children>
+                  <Label text="⦿ Issued By Admin:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transAdminNameId" text="James" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="356.0" spacing="20.0">
+               <children>
+                  <Label text="⦿ Student Name:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transStudentNameId" text="Jihane" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="356.0" spacing="20.0">
+               <children>
+                  <Label text="⦿ Book Title:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transBookTitleId" text="Hunger Games" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="70.0" prefHeight="30.0" prefWidth="356.0" spacing="20.0">
+               <children>
+                  <Label text="⦿ Student Cin:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transStudentCinId" text="Y2893" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="100.0" prefHeight="30.0" prefWidth="356.0" spacing="20.0">
+               <children>
+                  <Label text="⦿ Timestamp:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transtimestampId" text="June 1 2022" />
+               </children>
+            </HBox>
+         </children>
+        </VBox>
+    </children>
+</HBox>
