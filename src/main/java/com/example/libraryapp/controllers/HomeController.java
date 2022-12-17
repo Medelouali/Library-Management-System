@@ -2,6 +2,7 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
+import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.dao.impls.BookDao;
 import com.example.libraryapp.dao.impls.BorrowingsDao;
 import com.example.libraryapp.dao.impls.StudentDao;
@@ -26,11 +27,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
+import java.sql.Statement;
+import com.example.libraryapp.dao.db.ConnectionDB;
+
 
 
 public class HomeController {
@@ -188,20 +194,20 @@ public class HomeController {
     }
     // -----  button Issue Book Submit ----- //
     @FXML
-    void onIssueBookSubmit(ActionEvent event) throws Exception{
+    void onIssueBookSubmit(ActionEvent event) {
+
+
         // -------------- just to see if there's a return ------------------- //
         System.out.println("Sub btn is Working ");
-        int isbn= Integer.parseInt(issueIsbnNumberId.getText());//isbn of the book
-        System.out.println("issueIsbnNumberId: " +isbn);
-        int cin= Integer.parseInt(issueCinStudentId.getText());//cin of the student
-        System.out.println("issueCinStudentId: " +cin);
+        int isbnID= Integer.parseInt(issueIsbnNumberId.getText());//isbn of the book
+        System.out.println("issueIsbnNumberId: " +isbnID);
+        int cinID= Integer.parseInt(issueCinStudentId.getText());//cin of the student
+        System.out.println("issueCinStudentId: " +cinID);
 
         String BrDate = issueBorrowDateId.getEditor().getText();//date of borrow
         //edit date from dd/mm/yyyy to yyyy-mm-dd
         String BrDateForm= String.valueOf(BrDate.charAt(6))+String.valueOf(BrDate.charAt(7))+String.valueOf(BrDate.charAt(8))+String.valueOf(BrDate.charAt(9))+"-"+String.valueOf(BrDate.charAt(3))+String.valueOf(BrDate.charAt(4))+"-"+String.valueOf(BrDate.charAt(0))+String.valueOf(BrDate.charAt(1));
         System.out.println(BrDateForm);
-
-
 
         String RtDate = issueReturnDateId.getEditor().getText();//date of return
         //edit date from dd/mm/yyyy to yyyy-mm-dd
@@ -215,7 +221,10 @@ public class HomeController {
 
         // the connection to BD and save into DB //
         BorrowingsDao DaoBr=new BorrowingsDao();
-        Borrowings Br=new Borrowings(2,isbn,cin,guest,BrDateForm,RtDateForm);
+
+
+
+        Borrowings Br=new Borrowings(2,isbnID,cinID,guest,BrDateForm,RtDateForm);
         Boolean h= DaoBr.save(Br);
         // ------------------------------------ //
 
