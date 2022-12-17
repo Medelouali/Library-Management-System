@@ -3,10 +3,8 @@ package com.example.libraryapp.controllers;
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -17,10 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class StudentController extends HomeController implements Initializable {
+public class StudentSearchController extends StudentController{
+
     @FXML
     private VBox StudentLayout;
+    private static String searchField;
 
+    public static void setSearchField(String searchField) {
+        StudentSearchController.searchField = searchField;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,37 +46,38 @@ public class StudentController extends HomeController implements Initializable {
     }
 
     private List<Student> students(){
-        List<Student> ls = new ArrayList<>();
+        List<Student> studentList = new ArrayList<>();
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String req="select * from students;";
+            String req="select * from students where username like'%"+searchField+"%' or description like '%"+searchField+"%';";
             ResultSet rs= st.executeQuery(req);
-            while(rs.next()){
+            if(!rs.next())
+            {
                 Student student =new Student();
-                student.setImgsrc(rs.getString("picture"));
-                student.setUsername(rs.getString("username"));
-                student.setIntro(rs.getString("description"));
-                ls.add(student);
+                student.setImgsrc("/com/example/libraryapp/assets/404.png");
+                student.setUsername("User Not Found");
+                student.setIntro("Try Again please");
+                studentList.add(student);
+            }
+            else {
+                do {
+                    Student student =new Student();
+                    student.setImgsrc(rs.getString("picture"));
+                    student.setUsername(rs.getString("username"));
+                    student.setIntro(rs.getString("description"));
+                    studentList.add(student);
+                }while (rs.next());
             }
             conDb.getCon().close();
-            return ls;
+            return studentList;
         }catch (Exception ec){
             ec.printStackTrace();
             AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Could fetch the books from the database, plz try again");
             alertMessage.displayWarning();
-            return ls;
-        }
-    }
-    @FXML
-    void onSearch(ActionEvent event) {
-        try{
-            StudentSearchController.setSearchField(searchId.getText());
-            this.switchPage(event, "students-search-view.fxml");
-        }catch (Exception e){
-            e.printStackTrace();
+            return studentList;
         }
     }
 }

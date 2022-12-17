@@ -1,10 +1,7 @@
 package com.example.libraryapp.controllers;
 
-import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.impls.BookDao;
 import com.example.libraryapp.models.Book;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
@@ -15,8 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class BookController extends HomeController implements Initializable {
+public class SearchController extends HomeController implements Initializable {
 
+    private static String searchField;
+
+    public static String getSearchField() {
+        return searchField;
+    }
+
+    public static void setSearchField(String searchField) {
+        SearchController.searchField = searchField;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -29,31 +35,18 @@ public class BookController extends HomeController implements Initializable {
                 HBox cardboard =fxmlLoader.load();
                 CardBookController cardBookController = fxmlLoader.getController();
                 cardBookController.SetData(books.get(i));
-                BookLayout.getChildren().add(cardboard);
+                this.BookLayout.getChildren().add(cardboard);
             }
         }catch (IOException e){
             e.printStackTrace();
 
         }
-
     }
-    List<Book> books(){
-        List<Book> ls = new ArrayList<>();
 
+    public List<Book> books(){
         BookDao dao= new BookDao();
-        List<List<String>> BookList = dao.getBooks();
-
-        for (List<String> strings : BookList) {
-            Book book = new Book();
-            book.setTitle(strings.get(0));
-            book.setAuthorName(strings.get(1));
-            book.setImgSrc(strings.get(2));
-            book.setDatePub(strings.get(3));
-            ls.add(book);
-        }
-
+        List<Book> ls = dao.SearchBook(getSearchField());
         return ls;
 
     }
-
 }

@@ -100,10 +100,6 @@ public class BookDao implements Dao<Book> {
 
                 row.add(col);
             }
-            for(List<String> s : row)
-            {
-                System.out.println(s);
-            }
             conDb.getCon().close();
             return row;
         }catch (Exception ec){
@@ -125,17 +121,42 @@ public class BookDao implements Dao<Book> {
             {
                 bookList.add(getById(rs.getInt("copy_id")));
             }
-            for(Book b : bookList)
-            {
-                System.out.println(b.getTitle());
-                System.out.println(b.getAuthorName());
-                System.out.println(b.getDatePub());
-            }
+
             conDb.getCon().close();
             return bookList;
         }catch (Exception ec){
             ec.printStackTrace();
             return null;
+        }
+
+    }
+    public List<Book> SearchBook(String keyword) {
+        ConnectionDB conDb = new ConnectionDB();
+        List<Book> bookList = new ArrayList<>();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req="SELECT * FROM books where title like '%"+keyword+"%' or author like '%"+keyword+"%' or genre like '%"+keyword+"%';";
+            ResultSet rs= st.executeQuery(req);
+            if(!rs.next())
+            {
+                Book book = new Book("Not Found","Not Found","/com/example/libraryapp/assets/404.jpg","No Found");
+                bookList.add(book);
+            }
+            else {
+                do{
+                    //String title, String authorName, String imgSrc,String datePub
+                    Book book = new Book(rs.getString("title"),rs.getString("author"),rs.getString("picture"),rs.getString("datePub"));
+                    bookList.add(book);
+                }while (rs.next());
+            }
+            conDb.getCon().close();
+            return bookList;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Could fetch the student from the database, plz try again");
+            alertMessage.displayWarning();
+            return bookList;
         }
 
     }
