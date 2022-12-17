@@ -53,33 +53,5 @@ public class BookController extends HomeController implements Initializable {
         return ls;
 
     }
-//    private List<Book> books(){
-//        List<Book> ls = new ArrayList<>();
-//        ConnectionDB conDb = new ConnectionDB();
-//
-//        Statement st ;
-//        try {
-//            st = conDb.getCon().createStatement();
-//            String req="select * from books;";
-//            ResultSet rs= st.executeQuery(req);
-//            while(rs.next()){
-//                Book book =new Book();
-//                book.setImgSrc(rs.getString("picture"));
-//                book.setAuthorName(rs.getString("author"));
-//                book.setDatePub(rs.getString("datePub"));
-//                book.setTitle(rs.getString("title"));
-//                ls.add(book);
-//            }
-//            conDb.getCon().close();
-//            return ls;
-//        }catch (Exception ec){
-//            ec.printStackTrace();
-//            AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Could fetch the books from the database, plz try again");
-//            alertMessage.displayWarning();
-//            return ls;
-//        }
-//    }
-
-
 
 }
