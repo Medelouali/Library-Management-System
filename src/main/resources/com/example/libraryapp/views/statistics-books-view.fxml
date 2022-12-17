@@ -85,7 +85,7 @@
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="490.0" prefWidth="802.0">
                                         <children>
-                                            <Button fx:id="showallbooks" layoutX="8.0" layoutY="44.0" mnemonicParsing="false" onAction="#showallbooks" text="show all books " />
+                                            <Button fx:id="showallbooks" layoutX="8.0" layoutY="44.0" mnemonicParsing="false" onAction="#showAllBooks" text="show all books " />
                                             <TableView fx:id="tablebook" layoutX="159.0" layoutY="44.0" prefHeight="269.0" prefWidth="623.0">
                                                 <columns>
                                                     <TableColumn fx:id="language" prefWidth="219.0" text="language" />

@@ -89,7 +89,7 @@
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="804.0">
                                         <children>
-                                            <Button layoutX="8.0" layoutY="44.0" mnemonicParsing="false" onAction="#showallstudents" text="show all students " />
+                                            <Button fx:id="showallstudents" layoutX="8.0" layoutY="44.0" mnemonicParsing="false" onAction="#showAllStudents" text="show all students " />
                                             <TableView fx:id="table" layoutX="178.0" layoutY="44.0" prefHeight="107.0" prefWidth="603.0" AnchorPane.leftAnchor="178.0">
                                                 <columns>
                                                     <TableColumn fx:id="username" prefWidth="212.0" text="username" />

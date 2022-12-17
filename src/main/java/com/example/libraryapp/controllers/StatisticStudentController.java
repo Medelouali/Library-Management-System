@@ -2,6 +2,7 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Student;
+import com.example.libraryapp.utils.AlertMessage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,25 +37,34 @@ public class StatisticStudentController extends HomeController {
 
     // fin partie menu button
 
-
-    public void showallstudents(){
+    @FXML
+    public void showAllStudents(ActionEvent e){
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st ;
         try {
             st = conDb.getCon().createStatement();
-            String statement="select * from students ";
+            String statement="select * from students";
             ResultSet rs = st.executeQuery(statement);
             while (rs.next()){
-                long studentid=rs.getLong(1); // recuperer id de chaque etudiant
-                String stat=" select count(*) from borrowings where student_id=studentid "; // aller vers table borrowings et chercher le nombre de copies empr par cette etudiant
+                long studentId=rs.getLong("id"); // recuperer id de chaque etudiant
+                String stat="select count(*) from borrowings where student_id='"+
+                        studentId+"'";
+                // aller vers table borrowings et chercher le nombre de copies empr par cette etudiant
                 ResultSet rst = st.executeQuery(stat);
-                data.add(new Student(rs.getString(2),rs.getString(6),rst.getLong(1)));//username,cin,number of borrowed copies selon ordre en base de donnees
+                data.add(
+                        new Student(rs.getString("username"),
+                                rs.getString("cin"),
+                                rst.getLong(1)));
+                //username,cin,number of borrowed copies selon ordre en base de donnees
 
             }
             conDb.getCon().close();
         }catch (Exception ec){
-            ec.printStackTrace();}
+            ec.printStackTrace();
+            AlertMessage alertMessage=new AlertMessage("Whoops", "", "Something went wrong please try again");
+            alertMessage.displayWarning();
+        }
         username.setCellValueFactory(new PropertyValueFactory<Student,String>("username"));
         cin.setCellValueFactory(new PropertyValueFactory<Student,String>("cin"));
         number.setCellValueFactory(new PropertyValueFactory<Student,Long>("number"));

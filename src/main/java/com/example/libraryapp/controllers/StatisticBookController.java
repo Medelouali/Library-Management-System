@@ -30,8 +30,8 @@ public class StatisticBookController extends HomeController {
 
 
 
-
-    public void showallbooks() {
+    @FXML
+    public void showAllBooks(ActionEvent e) {
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st;
