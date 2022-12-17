@@ -29,18 +29,11 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Java Library Management System");
         stage.setScene(scene);
-<<<<<<< HEAD
         stage.setWidth(1034);
         stage.setHeight(600);
         stage.setResizable(false);
         stage.show();
-=======
-        stage.setWidth(700);
-        stage.setHeight(550);
-        stage.setResizable(false);
-        stage.show();
 
->>>>>>> branch_8
     }
 
     public static void main(String[] args) {

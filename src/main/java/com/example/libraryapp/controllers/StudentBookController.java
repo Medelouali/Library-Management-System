@@ -32,7 +32,7 @@ public class StudentBookController extends StudentHomeController{
         }
 
     }
-    private List<Book> books(){
+    List<Book> books(){
         List<Book> ls = new ArrayList<>();
 
         BookDao dao= new BookDao();

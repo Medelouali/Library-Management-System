@@ -9,24 +9,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="700.0" spacing="20.0" stylesheets="@../styles/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.BookDetailController">
+<VBox prefHeight="600.0" prefWidth="1034.0" spacing="20.0" stylesheets="@../styles/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.BookDetailController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <HBox spacing="43.0">
+    <HBox prefHeight="72.0" prefWidth="994.0" spacing="43.0">
         <VBox.margin>
             <Insets />
         </VBox.margin>
     </HBox>
-   <AnchorPane prefHeight="454.0" prefWidth="660.0">
+   <AnchorPane prefHeight="454.0" prefWidth="880.0">
       <children>
-         <ImageView fx:id="BookImg" fitHeight="315.0" fitWidth="210.0" layoutX="29.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-         <Button layoutX="493.0" layoutY="352.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="114.0" text="Back ">
+         <ImageView fx:id="BookImg" fitHeight="315.0" fitWidth="210.0" layoutX="28.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+         <Button layoutX="753.0" layoutY="155.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="154.0" text="Go Back">
             <font>
                <Font size="20.0" />
             </font>
          </Button>
-         <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="342.0" prefHeight="39.0" prefWidth="168.0" text="Title">
+         <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="368.0" prefHeight="39.0" prefWidth="168.0" text="Title">
             <font>
                <Font name="System Bold" size="18.0" />
             </font>

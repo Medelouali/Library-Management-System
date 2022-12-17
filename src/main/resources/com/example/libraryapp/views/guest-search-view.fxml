@@ -16,31 +16,31 @@
         <children>
             <VBox fillWidth="false" prefHeight="424.0" prefWidth="148.0" spacing="200.0">
                 <children>
-                    <VBox prefHeight="71.0" prefWidth="140.0" spacing="20.0">
+                    <VBox prefHeight="71.0" prefWidth="100.0" spacing="20.0">
                         <children>
-                            <Button fx:id="logoutId" mnemonicParsing="false" onAction="#onLogout" prefHeight="24.0" prefWidth="137.0" text="Back" />
+                            <Button fx:id="logoutId" mnemonicParsing="false" onAction="#onLogout" prefHeight="24.0" prefWidth="99.0" text="Back" />
                         </children>
                     </VBox>
                 </children>
             </VBox>
-            <VBox prefHeight="560.0" prefWidth="798.0">
+            <VBox prefHeight="560.0" prefWidth="802.0">
                 <children>
                     <HBox prefHeight="29.0" prefWidth="470.0" spacing="10.0">
                         <children>
-                            <TextField fx:id="searchId" onKeyTyped="#onSearchTyping" prefHeight="24.0" prefWidth="685.0" promptText="Search" />
+                            <TextField fx:id="searchId" prefHeight="24.0" prefWidth="695.0" promptText="Search" />
                             <Button fx:id="searchButtonId" mnemonicParsing="false" onAction="#onSearch" prefHeight="24.0" prefWidth="86.0" text="Search" />
                         </children>
                   <VBox.margin>
                      <Insets bottom="10.0" />
                   </VBox.margin>
                     </HBox>
-                    <VBox prefHeight="529.0" prefWidth="798.0">
+                    <VBox prefHeight="523.0" prefWidth="802.0">
                         <children>
-                            <ScrollPane prefHeight="522.0" prefWidth="798.0">
+                            <ScrollPane prefHeight="526.0" prefWidth="802.0">
 
-                        <content>
-                           <VBox fx:id="BookLayout" prefHeight="521.0" prefWidth="796.0" />
-                        </content></ScrollPane>
+                                <content>
+                                    <VBox fx:id="BookLayout" prefHeight="525.0" prefWidth="800.0" />
+                                </content></ScrollPane>
                         </children>
                     </VBox>
                 </children>
