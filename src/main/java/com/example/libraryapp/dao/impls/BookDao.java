@@ -98,7 +98,15 @@ public class BookDao implements Dao<Book> {
                 col.add(rs.getString("picture"));
                 col.add(rs.getString("datePub"));
 
+                col.add(rs.getString("id"));
+
+
+
                 row.add(col);
+            }
+            for(List<String> s : row)
+            {
+                System.out.println(s);
             }
             conDb.getCon().close();
             return row;
@@ -122,6 +130,12 @@ public class BookDao implements Dao<Book> {
                 bookList.add(getById(rs.getInt("copy_id")));
             }
 
+            for(Book b : bookList)
+            {
+                System.out.println(b.getTitle());
+                System.out.println(b.getAuthorName());
+                System.out.println(b.getDatePub());
+            }
             conDb.getCon().close();
             return bookList;
         }catch (Exception ec){
@@ -161,6 +175,24 @@ public class BookDao implements Dao<Book> {
 
     }
 
+
+
+    public Book getBookById(long id) {
+        ConnectionDB conDb = new ConnectionDB();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req="SELECT * FROM books WHERE id like '"+id+"';";
+            ResultSet rs= st.executeQuery(req);
+            rs.next();
+            Book book = new Book(rs.getString("title"),rs.getString("author"),rs.getString("picture"),rs.getString("datePub"),rs.getString("genre"),rs.getString("edition"),rs.getString("isbn"),rs.getString("language"),rs.getLong("copyAmount"));
+            conDb.getCon().close();
+            return book;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            return null;
+        }
+    }
 
 
     @Override

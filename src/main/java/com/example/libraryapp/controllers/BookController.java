@@ -5,6 +5,7 @@ import com.example.libraryapp.dao.impls.BookDao;
 import com.example.libraryapp.models.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
@@ -38,6 +39,7 @@ public class BookController extends HomeController implements Initializable {
 
     }
     List<Book> books(){
+
         List<Book> ls = new ArrayList<>();
 
         BookDao dao= new BookDao();
@@ -49,6 +51,8 @@ public class BookController extends HomeController implements Initializable {
             book.setAuthorName(strings.get(1));
             book.setImgSrc(strings.get(2));
             book.setDatePub(strings.get(3));
+
+            book.setId(Long.parseLong(strings.get(4)));
             ls.add(book);
         }
 

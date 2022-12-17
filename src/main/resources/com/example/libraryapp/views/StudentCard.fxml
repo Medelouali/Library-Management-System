@@ -8,6 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.StudentCard">
+
    <children>
       <HBox fx:id="Box" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -45,6 +46,7 @@
                         </Button>
                      </children>
                   </HBox>
+
                </children>
             </HBox>
          </children>

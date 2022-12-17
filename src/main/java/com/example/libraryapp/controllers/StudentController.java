@@ -4,6 +4,7 @@ import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -56,6 +57,9 @@ public class StudentController extends HomeController implements Initializable {
                 student.setImgsrc(rs.getString("picture"));
                 student.setUsername(rs.getString("username"));
                 student.setIntro(rs.getString("description"));
+
+                student.setId(Long.parseLong(rs.getString("id")));
+
                 ls.add(student);
             }
             conDb.getCon().close();
@@ -76,4 +80,5 @@ public class StudentController extends HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }

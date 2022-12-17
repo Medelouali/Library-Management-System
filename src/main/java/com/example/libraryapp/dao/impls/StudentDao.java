@@ -36,6 +36,23 @@ public class StudentDao implements Dao<Student> {
 
     }
 
+    public Student getStudentById(long id) {
+        ConnectionDB conDb = new ConnectionDB();
+        Statement st ;
+        try {
+            st = conDb.getCon().createStatement();
+            String req="SELECT * FROM students WHERE id like '"+id+"';";
+            ResultSet rs= st.executeQuery(req);
+            rs.next();
+            Student student = new Student(rs.getString("username"),rs.getString("picture"),rs.getString("email"),rs.getString("description"),rs.getString("cin"),rs.getLong("maxBorrowed"),rs.getDate("timestamp"));
+            conDb.getCon().close();
+            return student;
+        }catch (Exception ec){
+            ec.printStackTrace();
+            return null;
+        }
+    }
+
     //it returns a string because we need the msg in popup box if there's a problem
     public String hasAlreadyBorrowedBook(Student student, String title, String author, String isbn, boolean state, String returnDate){
         ConnectionDB conDb = new ConnectionDB();

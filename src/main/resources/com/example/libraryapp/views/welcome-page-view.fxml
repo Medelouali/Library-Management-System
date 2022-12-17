@@ -10,6 +10,7 @@
 <AnchorPane fx:id="welcomeID" prefHeight="600.0" prefWidth="1034.0" style="-fx-background-color: white;" stylesheets="@../styles/welcome.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.WelcomePageController">
    <children>
       <ImageView fitHeight="134.0" fitWidth="126.0" layoutX="468.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="468.0" AnchorPane.rightAnchor="440.0">
+
          <image>
             <Image url="@../assets/books.jpg" />
          </image>
@@ -22,5 +23,6 @@
             <Font name="System Bold" size="13.0" />
          </font></Label>
       <Label layoutX="350.0" layoutY="283.0" prefHeight="59.0" prefWidth="370.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Read &amp; Grow" />
+
    </children>
 </AnchorPane>

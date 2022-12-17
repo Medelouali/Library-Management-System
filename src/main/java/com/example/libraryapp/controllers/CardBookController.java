@@ -21,6 +21,8 @@ public class CardBookController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    static public long id_button;
     @FXML
     private ImageView BookImg;
 
@@ -42,31 +44,37 @@ public class CardBookController {
     @FXML
     void ondetails(ActionEvent event) {
 
-
+        id_button=Long.parseLong(details.getId());
         try{
-            this.switchPage(event, "home-view.fxml");
+            this.switchPage(event, "book-details-view.fxml");
+
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
     public void switchPage(ActionEvent event, String pageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(pageName));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setWidth(1034);
-        stage.setHeight(600);
+        stage.setWidth(700);
+        stage.setHeight(550);
         stage.show();
     }
 
-        public void SetData(Book book){
+
+    public void SetData(Book book){
             Image image= new Image(getClass().getResourceAsStream(book.getImgSrc()));
             BookImg.setImage(image);
             BookTitle.setText(book.getTitle());
             PubYear.setText("PubYear : "+book.getDatePub());
             bookAuthor.setText("Author : " +book.getAuthorName());
+
+            details.setId(Long.toString(book.getId()));
             box.setStyle("-fx-background-color : #"+color);
+
         }
 
 

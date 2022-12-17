@@ -14,6 +14,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <HBox spacing="70.0">
+
         <children>
             <Button fx:id="newStudentId" mnemonicParsing="false" onAction="#onNewStudent" text="New Student" />
             <Button fx:id="newBookId" mnemonicParsing="false" onAction="#onNewBook" text="New Book">
@@ -37,6 +38,7 @@
                 </HBox.margin>
             </Button>
                 <Button fx:id="addCopiesId" mnemonicParsing="false" onAction="#onAddCopies" prefHeight="24.0" prefWidth="103.0" text="Add Copies" />
+
         </children>
         <VBox.margin>
             <Insets />
@@ -48,6 +50,7 @@
                 <children>
                     <VBox prefHeight="79.0" prefWidth="138.0" spacing="20.0">
                         <children>
+
                             <Button fx:id="booksId" mnemonicParsing="false" onAction="#onBooks" prefHeight="24.0" prefWidth="102.0" text="Books" />
                             <Button fx:id="studentsId" mnemonicParsing="false" onAction="#onStudents" prefHeight="24.0" prefWidth="103.0" text="Students" />
                             <Button fx:id="statisticsId" mnemonicParsing="false" onAction="#onStatistics" prefHeight="24.0" prefWidth="104.0" text="Statistics" />
@@ -75,6 +78,7 @@
                     <VBox prefHeight="487.0" prefWidth="802.0">
                         <children>
                             <ScrollPane prefHeight="494.0" prefWidth="802.0">
+
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="466.0">
                                         <children>

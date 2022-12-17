@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,6 +14,7 @@
    <children>
       <Label layoutX="296.0" layoutY="40.0" prefHeight="59.0" prefWidth="348.0" style="-fx-font-size: 38; -fx-alignment: center;" text="Welcome Back" />
       <ImageView fitHeight="188.0" fitWidth="244.0" layoutX="340.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+
          <image>
             <Image url="@../assets/librarian.jpg" />
          </image>
@@ -25,5 +27,6 @@
       <Button layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="90.0" text="Back" />
       <Hyperlink layoutX="162.0" layoutY="517.0" onAction="#onGuestLink" prefHeight="34.0" prefWidth="291.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Browe In Guest Mode" />
       <Hyperlink layoutX="599.0" layoutY="521.0" onAction="#onRegisterLink" prefHeight="34.0" prefWidth="236.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Don't have an account ?" />
+
    </children>
 </AnchorPane>

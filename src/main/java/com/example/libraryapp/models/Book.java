@@ -25,6 +25,7 @@ public class Book {
         this.language = language;
         this.copiesNumber = copiesNumber;
     }
+
     public Book(double rating, String title, String authorName, String genre, String isbn, String language, long copiesNumber, String datePub) {
         this.rating = rating;
         this.title = title;
@@ -68,10 +69,24 @@ public class Book {
 
     }
 
+
     public Book(String title, String authorName, String imgSrc,String datePub) {
         this.imgSrc = imgSrc;
         this.title = title;
         this.authorName = authorName;
+        this.datePub = datePub;
+    }
+
+
+    public Book( String title, String authorName, String imgSrc,String datePub,String genre, String edition, String isbn, String language, long copiesNumber) {
+        this.imgSrc = imgSrc;
+        this.title = title;
+        this.authorName = authorName;
+        this.genre = genre;
+        this.edition = edition;
+        this.isbn = isbn;
+        this.language = language;
+        this.copiesNumber = copiesNumber;
         this.datePub = datePub;
     }
 

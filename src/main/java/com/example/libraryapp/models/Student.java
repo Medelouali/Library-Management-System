@@ -2,6 +2,7 @@ package com.example.libraryapp.models;
 
 import java.sql.Date;
 
+
 public class Student {
     public final static long maxBorrowedBooks = 10;
     private long id;
@@ -29,6 +30,7 @@ public class Student {
         this.booksNumber = booksNumber;
     }
 
+
     public Student(String username, String email, String password, String cin, String description) {
         this.username = username;
         this.email = email;
@@ -40,6 +42,17 @@ public class Student {
     {
         this.email=email;
         this.password= password;
+    }
+
+
+    public Student(String username, String imgsrc, String email, String description,String cin, long booksNumber, Date timeStamp) {
+        Imgsrc = imgsrc;
+        this.username = username;
+        this.email = email;
+        this.cin = cin;
+        this.timeStamp = timeStamp;
+        this.description = description;
+        this.booksNumber = booksNumber;
     }
 
     public Student(long id, String username, String email, String password, String cin, Date timeStamp, String description, long booksNumber, int privileges, int isFlagged) {
@@ -119,6 +132,11 @@ public class Student {
         return Imgsrc;
     }
 
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setIntro(String intro) {
         this.intro = intro;
     }
@@ -140,4 +158,5 @@ public class Student {
                 ", isFlagged=" + isFlagged +
                 '}';
     }
+
 }

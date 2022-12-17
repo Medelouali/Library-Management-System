@@ -95,6 +95,7 @@ public class LoginPageController {
         stage.setScene(scene);
         stage.setWidth(1034);
         stage.setHeight(600);
+
         stage.show();
     }
 

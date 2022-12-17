@@ -18,6 +18,7 @@
                     <VBox prefHeight="79.0" prefWidth="138.0" spacing="20.0">
                         <children>
                             <Button fx:id="booksId" mnemonicParsing="false" onAction="#onBooks" prefHeight="24.0" prefWidth="102.0" text="My Books" />
+
                         </children>
                     </VBox>
                     <VBox prefHeight="71.0" prefWidth="100.0" spacing="20.0" />

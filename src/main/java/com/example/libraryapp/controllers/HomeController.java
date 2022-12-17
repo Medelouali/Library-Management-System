@@ -21,6 +21,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -71,6 +72,7 @@ public class HomeController {
 
     @FXML
     protected TextField searchId;
+
 
     @FXML
     private TextField bookNameId;
@@ -306,6 +308,7 @@ public class HomeController {
                     this.switchPage(event, "guest-search-view.fxml");
                 }
             }
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -316,6 +319,7 @@ public class HomeController {
         System.out.println("Typing");
     }
     @FXML
+
     void onSettings(ActionEvent event) {
         try{
             this.switchPage(event, "settings-view.fxml");
@@ -328,6 +332,7 @@ public class HomeController {
     void onStatistics(ActionEvent event) {
         try{
             this.switchPage(event, "statistics-books-view.fxml");
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -390,6 +395,7 @@ public class HomeController {
         stage.setScene(scene);
         stage.setWidth(1034);
         stage.setHeight(600);
+
         stage.show();
     }
 

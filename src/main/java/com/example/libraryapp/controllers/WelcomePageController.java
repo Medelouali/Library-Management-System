@@ -44,6 +44,7 @@ public class WelcomePageController {
             this.switchPage(event, "login-page-view.fxml");
             //for testing
 //            this.switchPage(event, "home-view.fxml");
+
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -3,8 +3,11 @@
     -fx-background-color: #191970;
     -fx-font-size: 15px;
     -fx-font-weight:bold;
+<<<<<<< HEAD
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
     fx-padding: 10 20 10 20;
+=======
+>>>>>>> branch_8
 }
 
 .label
@@ -21,13 +24,20 @@
 #error_msg{
     -fx-text-fill: red;
     -fx-font-size: 15px;
+<<<<<<< HEAD
     -fx-background-color: #f0f8ff;
+=======
+>>>>>>> branch_8
 
 }
 
 #transactionCardId{
+<<<<<<< HEAD
     -fx-background-color: white;
         -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.3) , 10,0,0,0.5 );
         -fx-border-radius: 4;
 
+=======
+    -fx-background-color: #C9FFF3;
+>>>>>>> branch_8
 }
