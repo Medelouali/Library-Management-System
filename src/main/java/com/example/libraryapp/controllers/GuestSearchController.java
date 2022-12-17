@@ -1,7 +1,9 @@
 package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.models.Book;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -27,6 +29,11 @@ public class GuestSearchController extends SearchController {
             e.printStackTrace();
 
         }
+    }
+
+    @FXML
+    void onSearchTyping(KeyEvent event) {
+        System.out.println("Typing");
     }
 }
 

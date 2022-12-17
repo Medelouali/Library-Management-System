@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -308,6 +309,11 @@ public class HomeController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void onSearchTyping(KeyEvent event) {
+        System.out.println("Typing");
     }
     @FXML
     void onSettings(ActionEvent event) {

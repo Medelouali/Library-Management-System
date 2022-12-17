@@ -5,6 +5,7 @@ import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -79,5 +80,10 @@ public class StudentSearchController extends StudentController{
             alertMessage.displayWarning();
             return studentList;
         }
+    }
+
+    @FXML
+    void onSearchTyping(KeyEvent event) {
+        System.out.println("Typing");
     }
 }
