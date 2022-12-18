@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="800.0" spacing="120.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.CardBookController">
+<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="800.0" spacing="80.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.CardBookController">
 
    <children>
-      <VBox alignment="CENTER" prefHeight="144.0" prefWidth="125.0">
+      <VBox alignment="CENTER" prefHeight="144.0" prefWidth="116.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -28,24 +28,25 @@
             </HBox>
          </children>
       </VBox>
-      <VBox prefHeight="159.0" prefWidth="172.0">
+      <VBox prefHeight="144.0" prefWidth="272.0">
          <children>
-            <VBox prefHeight="143.0" prefWidth="172.0">
+            <VBox prefHeight="119.0" prefWidth="272.0">
                <children>
-                  <Label fx:id="BookTitle" alignment="CENTER" prefHeight="16.0" prefWidth="172.0" text="Rich Dad Poor Dad">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="-36.0" />
-                     </padding>
-                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="BookTitle" alignment="CENTER" prefHeight="16.0" prefWidth="179.0" text="Rich Dad Poor Dad">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                   <HBox prefHeight="86.0" prefWidth="172.0">
                      <children>
-                        <Label fx:id="bookAuthor" prefHeight="43.0" prefWidth="150.0" text="Author : Victor Hugo">
+                        <Label fx:id="bookAuthor" prefHeight="16.0" prefWidth="275.0" text="Author : Victor Hugo">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -57,7 +58,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="PubYear" alignment="TOP_LEFT" prefHeight="35.0" prefWidth="143.0" text="PubYear : 2009">
+                        <Label fx:id="PubYear" alignment="TOP_LEFT" prefHeight="16.0" prefWidth="275.0" text="PubYear : 2009">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -66,7 +67,7 @@
                   </HBox>
                </children>
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets bottom="5.0" top="20.0" />
                </VBox.margin>
             </VBox>
          </children>
