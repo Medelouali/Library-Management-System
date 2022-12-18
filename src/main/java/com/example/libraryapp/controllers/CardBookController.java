@@ -38,21 +38,9 @@ public class CardBookController {
     @FXML
     private HBox box;
 
-    @FXML
-    private Button details;
+
     private String color ="FFFFFF";
-    @FXML
-    void ondetails(ActionEvent event) {
 
-        id_button=Long.parseLong(details.getId());
-        try{
-            this.switchPage(event, "book-details-view.fxml");
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
     public void switchPage(ActionEvent event, String pageName) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/"+pageName));
@@ -71,8 +59,6 @@ public class CardBookController {
             BookTitle.setText(book.getTitle());
             PubYear.setText("PubYear : "+book.getDatePub());
             bookAuthor.setText("Author : " +book.getAuthorName());
-
-            details.setId(Long.toString(book.getId()));
             box.setStyle("-fx-background-color : #"+color);
 
         }
