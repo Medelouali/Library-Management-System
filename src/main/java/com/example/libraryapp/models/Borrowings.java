@@ -7,17 +7,13 @@ public class Borrowings {
     private long adminId;
     private String borrowingDate;
     private String returnDate;
-<<<<<<< HEAD
 
     private String bookIsbn;
     private String studentCin;
 
 
 
-=======
 
-
->>>>>>> nikrbranch
     public Borrowings(long id, long copyId, long studentId, long adminId, String borrowingDate, String returnDate) {
         this.id = id;
         this.copyId = copyId;
@@ -35,8 +31,7 @@ public class Borrowings {
         this.studentCin = studentCin;
     }
 
-<<<<<<< HEAD
-=======
+
     public long getCopyId() {
         return copyId;
     }
@@ -49,7 +44,6 @@ public class Borrowings {
         return adminId;
     }
 
->>>>>>> nikrbranch
     public String getBorrowingDate() {
         return borrowingDate;
     }

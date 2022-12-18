@@ -41,8 +41,6 @@ public class GuestCardBookController {
     private String color ="FFFFFF";
     @FXML
     void ondetails(ActionEvent event) {
-
-
         try{
             this.switchPage(event, "home-view.fxml");
         }catch (Exception e){
