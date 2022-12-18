@@ -76,7 +76,7 @@
                             <ScrollPane prefHeight="482.0" prefWidth="802.0">
 
                                 <content>
-                                    <VBox fx:id="BookLayout" prefHeight="489.0" prefWidth="458.0" />
+                                    <VBox fx:id="BookLayout" prefHeight="489.0" prefWidth="788.0" />
                                 </content></ScrollPane>
                         </children>
                     </VBox>
