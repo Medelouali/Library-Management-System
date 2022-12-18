@@ -26,6 +26,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+
+
 public class HomeController {
     protected Stage stage;
 
@@ -115,6 +117,19 @@ public class HomeController {
     @FXML
     private TextField returnStudentNameId;
 
+    // --------- Issue Book Element ---------- //
+    @FXML
+    private Button IssueBookSubmitId;
+    @FXML
+    private DatePicker issueBorrowDateId;
+    @FXML
+    private TextField issueCinStudentId;
+    @FXML
+    private TextField issueIsbnNumberId;
+    @FXML
+    private DatePicker issueReturnDateId;
+    // ------------------------------------- //
+
     @FXML
     private HBox vBoxBodyId;
 
@@ -161,18 +176,7 @@ public class HomeController {
     private TextField newRatingId;
 
 
-    // --------- Issue Book Element ---------- //
-    @FXML
-    private Button IssueBookSubmitId;
-    @FXML
-    private DatePicker issueBorrowDateId;
-    @FXML
-    private TextField issueCinStudentId;
-    @FXML
-    private TextField issueIsbnNumberId;
-    @FXML
-    private DatePicker issueReturnDateId;
-    // ------------------------------------- //
+
 
     @FXML
     void onAddCopies(ActionEvent event) {
@@ -228,8 +232,6 @@ public class HomeController {
             e.printStackTrace();
         }
     }
-
-    // -----  button Issue Book Submit ----- //
     @FXML
     void onIssueBookSubmit(ActionEvent event) {
         // -------------- just to see if there's a return ------------------- //

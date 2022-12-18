@@ -4,6 +4,7 @@ import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Borrowings;
+
 import com.example.libraryapp.utils.AlertMessage;
 
 import java.sql.ResultSet;
@@ -87,6 +88,7 @@ public class BorrowingsDao implements Dao<Borrowings> {
             }
             System.out.println("Cin: "+Main.getUser().getEmail());
 
+
             conDb.getCon().close();
             AlertMessage alertMessage=new AlertMessage("Whoops","","The book couldn't get issued something went wrong, plz try later:(");
             alertMessage.displayWarning();
@@ -95,11 +97,13 @@ public class BorrowingsDao implements Dao<Borrowings> {
 
         }catch (Exception ec){
             AlertMessage alertMessage=new AlertMessage("Whooops","","You put the wrong information !! make sure that the ISBN or CIN exists in database.");
+
             alertMessage.displayWarning();
             ec.printStackTrace();
 
             return true;
         }
+
 
 
     }

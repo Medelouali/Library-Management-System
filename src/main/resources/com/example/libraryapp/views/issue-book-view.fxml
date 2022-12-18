@@ -137,6 +137,7 @@
                                        <Insets left="150.0" />
                                     </padding>
                                             </VBox>
+
                                         </children>
                                     </AnchorPane>
                                 </content>
