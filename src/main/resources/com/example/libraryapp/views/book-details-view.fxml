@@ -18,7 +18,7 @@
             <Insets />
         </VBox.margin>
     </HBox>
-   <AnchorPane prefHeight="454.0" prefWidth="880.0">
+   <AnchorPane prefHeight="702.0" prefWidth="994.0">
       <children>
          <ImageView fx:id="BookImg" fitHeight="315.0" fitWidth="210.0" layoutX="28.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
          <Button layoutX="753.0" layoutY="155.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="154.0" text="Go Back">
