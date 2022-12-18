@@ -16,7 +16,7 @@ public class BorrowingsDao implements Dao<Borrowings> {
     public boolean save(Borrowings item) {
         ConnectionDB conDb = new ConnectionDB();
 
-        Statement st, st2, st3, st4;
+        Statement st, st2, st3, st4, st5, st6, st7, st8;
         //check
         try {
             st = conDb.getCon().createStatement();
@@ -28,6 +28,7 @@ public class BorrowingsDao implements Dao<Borrowings> {
             if(!stdSet.next() || !bookSet.next()){
                 AlertMessage alertMessage=new AlertMessage("Whooops","","Either the book isbn is wrong the you misspelled the student cin, please check again:(");
                 alertMessage.displayWarning();
+                conDb.getCon().close();
                 return true;
             }
 
@@ -40,6 +41,7 @@ public class BorrowingsDao implements Dao<Borrowings> {
             if(!availabilitySet.next()){
                 AlertMessage alertMessage=new AlertMessage("Whooops","","This book can't borrowed either because is not in good state or it's not available right now or there are no more copies of this book in the stock, please choose another book:(");
                 alertMessage.displayWarning();
+                conDb.getCon().close();
                 return true;
             }
 
@@ -53,13 +55,41 @@ public class BorrowingsDao implements Dao<Borrowings> {
                 if(maxBorrowingsSet.getLong("counter")>10){
                     AlertMessage alertMessage=new AlertMessage("ops","","Students are allowed to borrow up to 10 books, this student exceeded the range, plz return one book to get a new one");
                     alertMessage.displayWarning();
+                    conDb.getCon().close();
                     return true;
                 }
             }
+            String reqAmount="select copyAmount from books where id='"+
+                    bookSet.getLong("id")+"'";
+            st5 = conDb.getCon().createStatement();
+            ResultSet reqAmountSet=st5.executeQuery(reqAmount);
+            String req="INSERT INTO `borrowings` (`student_id`, `copy_id`, `admin_id`, `borrowingDate`, `returnDate`)  VALUES('"+
+                    stdSet.getLong("id")+"','"+availabilitySet.getLong("id")+
+                    "','"+1+"','"+item.getBorrowingDate()+"','"+item.getReturnDate()+"');";
+            st8 = conDb.getCon().createStatement();
+            int req2Set=st8.executeUpdate(req);
 
-            System.out.println("Cin: "+Main.getUser().getCin());
+            String req3="UPDATE books SET copyAmount = "+(reqAmountSet.getLong("copyAmount")-1)+
+                    " WHERE id="+bookSet.getLong("id")+";";
+            st6 = conDb.getCon().createStatement();
+            int req3Set=st6.executeUpdate(req3);
+
+            String req4="UPDATE bookcopies SET availability = 'unavailable' where id='"+
+                    availabilitySet.getLong("id")+";";
+            st7 = conDb.getCon().createStatement();
+            int req4Set=st7.executeUpdate(req4);
+
+            if(req2Set>0 && req3Set>0 && req4Set>0){
+                AlertMessage alertMessage=new AlertMessage("Congrats","","The book has been issued successfully:)");
+                alertMessage.displayConfirmation();
+                conDb.getCon().close();
+                return false;
+            }
+            System.out.println("Cin: "+Main.getUser().getEmail());
 
             conDb.getCon().close();
+            AlertMessage alertMessage=new AlertMessage("Whoops","","The book couldn't get issued something went wrong, plz try later:(");
+            alertMessage.displayWarning();
             return false;
             // ------------------------------------------------------ //
 
