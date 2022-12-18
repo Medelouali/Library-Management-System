@@ -237,16 +237,24 @@ public class HomeController {
         String cinID= issueCinStudentId.getText();//cin of the student
 
         String BrDate = issueBorrowDateId.getEditor().getText();//date of borrow
+        System.out.println(BrDate);
+
+        String BrDateForm= String.valueOf(BrDate.charAt(6))+String.valueOf(BrDate.charAt(7))+String.valueOf(BrDate.charAt(8))+String.valueOf(BrDate.charAt(9))+"-"+String.valueOf(BrDate.charAt(3))+String.valueOf(BrDate.charAt(4))+"-"+String.valueOf(BrDate.charAt(0))+String.valueOf(BrDate.charAt(1));
+        System.out.println(BrDateForm);
 
         String RtDate = issueReturnDateId.getEditor().getText();//date of return
+        System.out.println(RtDate);
 
+        String RtDateForm= String.valueOf(RtDate.charAt(6))+String.valueOf(RtDate.charAt(7))+String.valueOf(RtDate.charAt(8))+String.valueOf(RtDate.charAt(9))+"-"+String.valueOf(RtDate.charAt(3))+String.valueOf(RtDate.charAt(4))+"-"+String.valueOf(RtDate.charAt(0))+String.valueOf(RtDate.charAt(1));
+        System.out.println(RtDateForm);
 
         // the connection to BD and save into DB //
         BorrowingsDao DaoBr=new BorrowingsDao();
 
 
 
-        Borrowings Br=new Borrowings(BrDate, RtDate, isbnID, cinID);
+        Borrowings Br=new Borrowings(BrDateForm, RtDateForm, isbnID, cinID);
+        System.out.println("is workinggg");
         Boolean h= DaoBr.save(Br);
         // ------------------------------------ //
 

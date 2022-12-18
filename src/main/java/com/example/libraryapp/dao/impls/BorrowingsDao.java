@@ -22,9 +22,15 @@ public class BorrowingsDao implements Dao<Borrowings> {
             st = conDb.getCon().createStatement();
             String doesStudentExist="select * from students where cin='"+item.getStudentCin()+"'";
             String doesBookExist="select * from books where isbn='"+item.getBookIsbn()+"'";
+            System.out.println(doesBookExist);//test
+            System.out.println(doesStudentExist);//test
+
             ResultSet stdSet=st.executeQuery(doesStudentExist);
             st2 = conDb.getCon().createStatement();
             ResultSet bookSet=st2.executeQuery(doesBookExist);
+            //System.out.println("boookSet /"+bookSet.next());//test
+
+            //test if the isbn and cin exist in the DataBase
             if(!stdSet.next() || !bookSet.next()){
                 AlertMessage alertMessage=new AlertMessage("Whooops","","Either the book isbn is wrong the you misspelled the student cin, please check again:(");
                 alertMessage.displayWarning();
@@ -32,10 +38,13 @@ public class BorrowingsDao implements Dao<Borrowings> {
                 return true;
             }
 
-            // check if a copy of that book is not available
+            // check if the book_copy of that book is not available
             String isCopyAvailabe="select * from bookcopies where book_id='"+
                     bookSet.getLong("id")+
                     "' and state='good' and availability='available'";
+
+            System.out.println("get.long : "+bookSet.getLong("id"));//test
+
             st3 = conDb.getCon().createStatement();
             ResultSet availabilitySet=st3.executeQuery(isCopyAvailabe);
             if(!availabilitySet.next()){
@@ -44,13 +53,15 @@ public class BorrowingsDao implements Dao<Borrowings> {
                 conDb.getCon().close();
                 return true;
             }
+            System.out.println("test1");//test
 
             // checking if that student has exceeded the booksMax=10
-            String maxBorrowings="select count(*) as counter from students, borrowings where borrowings.student_id='"+
+            String maxBorrowings="select count(*) as counter from borrowings where borrowings.student_id='"+
                     stdSet.getLong("id")
                     +"'";
             st4 = conDb.getCon().createStatement();
             ResultSet maxBorrowingsSet=st4.executeQuery(maxBorrowings);
+            System.out.println("test2");//test
             if(maxBorrowingsSet.next()){
                 if(maxBorrowingsSet.getLong("counter")>10){
                     AlertMessage alertMessage=new AlertMessage("ops","","Students are allowed to borrow up to 10 books, this student exceeded the range, plz return one book to get a new one");
@@ -59,32 +70,53 @@ public class BorrowingsDao implements Dao<Borrowings> {
                     return true;
                 }
             }
+            System.out.println("test3");//test
+
+            //test if the book is there
             String reqAmount="select copyAmount from books where id='"+
                     bookSet.getLong("id")+"'";
             st5 = conDb.getCon().createStatement();
             ResultSet reqAmountSet=st5.executeQuery(reqAmount);
+
+            System.out.println("test4");//test
+            //insert the info into BD
             String req="INSERT INTO `borrowings` (`student_id`, `copy_id`, `admin_id`, `borrowingDate`, `returnDate`)  VALUES('"+
                     stdSet.getLong("id")+"','"+availabilitySet.getLong("id")+
                     "','"+1+"','"+item.getBorrowingDate()+"','"+item.getReturnDate()+"');";
             st8 = conDb.getCon().createStatement();
             int req2Set=st8.executeUpdate(req);
+            System.out.println("test4-1");//test
+            reqAmountSet.next();//!!importent
+            System.out.println("reqAmountSet.getLong : "+reqAmountSet.getLong("copyAmount"));//test
 
+            //update the number of copy we have
             String req3="UPDATE books SET copyAmount = "+(reqAmountSet.getLong("copyAmount")-1)+
                     " WHERE id="+bookSet.getLong("id")+";";
+            System.out.println(req3);//test
+
+
             st6 = conDb.getCon().createStatement();
             int req3Set=st6.executeUpdate(req3);
+            System.out.println("test4-2");//test
 
             String req4="UPDATE bookcopies SET availability = 'unavailable' where id='"+
-                    availabilitySet.getLong("id")+";";
+                    availabilitySet.getLong("id")+"';";
+            System.out.println(req4);//test
+
+
             st7 = conDb.getCon().createStatement();
             int req4Set=st7.executeUpdate(req4);
+            System.out.println("test4-3");//test
 
+
+            System.out.println("test5");//test
             if(req2Set>0 && req3Set>0 && req4Set>0){
                 AlertMessage alertMessage=new AlertMessage("Congrats","","The book has been issued successfully:)");
                 alertMessage.displayConfirmation();
                 conDb.getCon().close();
                 return false;
             }
+            System.out.println("test6");//test
             System.out.println("Cin: "+Main.getUser().getEmail());
 
             conDb.getCon().close();
