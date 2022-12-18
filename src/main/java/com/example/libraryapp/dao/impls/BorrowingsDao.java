@@ -16,14 +16,15 @@ public class BorrowingsDao implements Dao<Borrowings> {
     public boolean save(Borrowings item) {
         ConnectionDB conDb = new ConnectionDB();
 
-        Statement st;
+        Statement st, st2, st3, st4;
         //check
         try {
             st = conDb.getCon().createStatement();
             String doesStudentExist="select * from students where cin='"+item.getStudentCin()+"'";
             String doesBookExist="select * from books where isbn='"+item.getBookIsbn()+"'";
             ResultSet stdSet=st.executeQuery(doesStudentExist);
-            ResultSet bookSet=st.executeQuery(doesBookExist);
+            st2 = conDb.getCon().createStatement();
+            ResultSet bookSet=st2.executeQuery(doesBookExist);
             if(!stdSet.next() || !bookSet.next()){
                 AlertMessage alertMessage=new AlertMessage("Whooops","","Either the book isbn is wrong the you misspelled the student cin, please check again:(");
                 alertMessage.displayWarning();
@@ -34,7 +35,8 @@ public class BorrowingsDao implements Dao<Borrowings> {
             String isCopyAvailabe="select * from bookcopies where book_id='"+
                     bookSet.getLong("id")+
                     "' and state='good' and availability='available'";
-            ResultSet availabilitySet=st.executeQuery(isCopyAvailabe);
+            st3 = conDb.getCon().createStatement();
+            ResultSet availabilitySet=st3.executeQuery(isCopyAvailabe);
             if(!availabilitySet.next()){
                 AlertMessage alertMessage=new AlertMessage("Whooops","","This book can't borrowed either because is not in good state or it's not available right now or there are no more copies of this book in the stock, please choose another book:(");
                 alertMessage.displayWarning();
@@ -45,7 +47,8 @@ public class BorrowingsDao implements Dao<Borrowings> {
             String maxBorrowings="select count(*) as counter from students, borrowings where borrowings.student_id='"+
                     stdSet.getLong("id")
                     +"'";
-            ResultSet maxBorrowingsSet=st.executeQuery(maxBorrowings);
+            st4 = conDb.getCon().createStatement();
+            ResultSet maxBorrowingsSet=st4.executeQuery(maxBorrowings);
             if(maxBorrowingsSet.next()){
                 if(maxBorrowingsSet.getLong("counter")>10){
                     AlertMessage alertMessage=new AlertMessage("ops","","Students are allowed to borrow up to 10 books, this student exceeded the range, plz return one book to get a new one");
