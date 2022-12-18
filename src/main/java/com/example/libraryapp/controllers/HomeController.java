@@ -2,11 +2,9 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
 import com.example.libraryapp.dao.Dao;
-import com.example.libraryapp.dao.impls.BookDao;
-import com.example.libraryapp.dao.impls.BookDaoImpl;
-import com.example.libraryapp.dao.impls.StudentDao;
-import com.example.libraryapp.dao.impls.StudentDaoImpl;
+import com.example.libraryapp.dao.impls.*;
 import com.example.libraryapp.models.Book;
+import com.example.libraryapp.models.Borrowings;
 import com.example.libraryapp.models.Student;
 import com.example.libraryapp.utils.AlertMessage;
 import javafx.event.ActionEvent;
@@ -21,7 +19,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
-
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -163,6 +160,20 @@ public class HomeController {
     @FXML
     private TextField newRatingId;
 
+
+    // --------- Issue Book Element ---------- //
+    @FXML
+    private Button IssueBookSubmitId;
+    @FXML
+    private DatePicker issueBorrowDateId;
+    @FXML
+    private TextField issueCinStudentId;
+    @FXML
+    private TextField issueIsbnNumberId;
+    @FXML
+    private DatePicker issueReturnDateId;
+    // ------------------------------------- //
+
     @FXML
     void onAddCopies(ActionEvent event) {
         try{
@@ -217,6 +228,31 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+
+    // -----  button Issue Book Submit ----- //
+    @FXML
+    void onIssueBookSubmit(ActionEvent event) {
+        // -------------- just to see if there's a return ------------------- //
+        String isbnID= issueIsbnNumberId.getText();//isbn of the book
+        String cinID= issueCinStudentId.getText();//cin of the student
+
+        String BrDate = issueBorrowDateId.getEditor().getText();//date of borrow
+
+        String RtDate = issueReturnDateId.getEditor().getText();//date of return
+
+
+        // the connection to BD and save into DB //
+        BorrowingsDao DaoBr=new BorrowingsDao();
+
+
+
+        Borrowings Br=new Borrowings(BrDate, RtDate, isbnID, cinID);
+        Boolean h= DaoBr.save(Br);
+        // ------------------------------------ //
+
+
+    }
+    // ------------------------------------ //
 
     @FXML
     void onLogout(ActionEvent event) {

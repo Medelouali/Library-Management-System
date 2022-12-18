@@ -79,6 +79,7 @@ public class RegisterPageController {
                 AdminDao dao=new AdminDao();
                 boolean isRegistered = dao.save(s);
                 if (isRegistered) {
+                    Main.setUser(s);
                     this.switchPage(event, "home-view.fxml");
                 }
                 else  {
