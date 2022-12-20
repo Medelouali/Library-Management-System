@@ -1,9 +1,7 @@
 package com.example.libraryapp.models;
 
 public class Book {
-    public double getRating() {
-        return rating;
-    }
+
 
     private double rating=0;
     private String imgSrc;
@@ -20,6 +18,14 @@ public class Book {
     private long copiesNumber;
     private long pagesNumber;
     private String datePub;
+
+    public Book(double rating, String title, String language, long copiesNumber) {
+        this.rating = rating;
+        this.title = title;
+        this.language = language;
+        this.copiesNumber = copiesNumber;
+    }
+
     public Book(String language, long copiesNumber,double rating) {
         this.rating = rating;
         this.language = language;
@@ -185,4 +191,11 @@ public class Book {
     public void setDatePub(String datePub) {
         this.datePub = datePub;
     }
+
+    public double getRating() {
+        return rating;
+    }
+
+
+
 }

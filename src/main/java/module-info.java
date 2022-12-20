@@ -13,4 +13,6 @@ module com.example.libraryapp {
     exports com.example.libraryapp.dao;
     opens com.example.libraryapp.dao to javafx.fxml;
 
+    opens com.example.libraryapp.models to javafx.base ;
+
 }
