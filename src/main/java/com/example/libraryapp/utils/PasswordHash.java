@@ -1,4 +1,4 @@
-package com.example.libraryapp.controllers;
+package com.example.libraryapp.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

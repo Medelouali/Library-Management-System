@@ -5,6 +5,7 @@ import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Admin;
 
 import com.example.libraryapp.models.Student;
+import com.example.libraryapp.utils.AlertMessage;
 
 
 import java.sql.ResultSet;
@@ -21,19 +22,24 @@ public class AdminDao implements Dao<Admin> {
         try {
             st = conDb.getCon().createStatement();
 
-            String checkStudent = "SELECT COUNT(*) FROM admins WHERE email like '"+item.getEmail()+"';";
+            String checkStudent = "SELECT * FROM admins WHERE email='"+item.getEmail()+"' or cin='"+
+                    item.getCin()+"' or username='"+item.getUsername()+"';";
             ResultSet rs = st.executeQuery(checkStudent);
-            rs.next();
-            boolean exists = rs.getInt("COUNT(*)")==0;
-            if (exists){
+            if (!rs.next()){
                 String req="INSERT INTO admins(username,email,password,cin,description,flagged) values('"+item.getUsername()+"','"+item.getEmail()+"','"+item.getPassword()+"','"+item.getCin()+"','"+item.getDescription()+"','"+item.getIsFlagged()+"');";
-                st.executeUpdate(req);
+                int res=st.executeUpdate(req);
+                if(res<=0){
+                    AlertMessage alertMessage=new AlertMessage("Whoops!!", "", "Something went wrong could not register!!, plz try again");
+                    alertMessage.displayWarning();
+                    conDb.getCon().close();
+                    return false;
+                }
                 conDb.getCon().close();
                 return true;
-            }
-            else {
-                return false;
-            }
+            };
+            AlertMessage alertMessage=new AlertMessage("Whoops!!", "", "The username, cin or the email you entered is already in use");
+            alertMessage.displayWarning();
+            return false;
         }catch (Exception ec){
             ec.printStackTrace();
             return false;

@@ -1,7 +1,7 @@
 package com.example.libraryapp.dao.impls;
 
 
-import com.example.libraryapp.controllers.PasswordHash;
+import com.example.libraryapp.utils.PasswordHash;
 import com.example.libraryapp.dao.Dao;
 import com.example.libraryapp.dao.db.ConnectionDB;
 import com.example.libraryapp.models.Student;

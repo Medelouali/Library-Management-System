@@ -2,6 +2,7 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
 
+import com.example.libraryapp.utils.PasswordHash;
 import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.models.Admin;
 

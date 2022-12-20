@@ -2,6 +2,7 @@ package com.example.libraryapp.controllers;
 
 import com.example.libraryapp.Main;
 
+import com.example.libraryapp.utils.PasswordHash;
 import com.example.libraryapp.dao.impls.AdminDao;
 import com.example.libraryapp.models.Admin;
 import com.example.libraryapp.utils.AlertMessage;
@@ -81,10 +82,6 @@ public class RegisterPageController {
                 if (isRegistered) {
                     Main.setUser(s);
                     this.switchPage(event, "home-view.fxml");
-                }
-                else  {
-                    AlertMessage alertMessage=new AlertMessage("Whoops!", "", "Could not save your credentials, try again please");
-                    alertMessage.displayWarning();
                 }
             }
             else if (!isMatching){

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,7 +17,7 @@
       <Button layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="90.0" text="Back" />
       <VBox layoutX="202.0" layoutY="42.0" prefHeight="526.0" prefWidth="614.0" spacing="15.0">
          <children>
-            <Label prefHeight="59.0" prefWidth="616.0" style="-fx-alignment: center; -fx-font-size: 38;" text="Register" />
+            <Label prefHeight="59.0" prefWidth="616.0" style="-fx-alignment: center; -fx-font-size: 38;" text="Hello, Welcome!" />
             <ImageView fitHeight="176.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
       
                <image>
@@ -34,7 +33,7 @@
             <PasswordField fx:id="password" prefHeight="30.0" prefWidth="370.0" promptText="Password" />
             <TextField fx:id="cin" prefHeight="30.0" prefWidth="370.0" promptText="Cin" />
             <TextField fx:id="description" prefHeight="30.0" prefWidth="370.0" promptText="Description" />
-            <Button mnemonicParsing="false" onAction="#onRegister" prefHeight="35.0" prefWidth="152.0" text="Register">
+            <Button mnemonicParsing="false" onAction="#onRegister" prefHeight="34.0" prefWidth="152.0" text="Register">
                <VBox.margin>
                   <Insets left="230.0" />
                </VBox.margin>
