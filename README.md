@@ -59,7 +59,7 @@ On the home page, users may see a welcome message or image that greets them and 
 Overall, the home page is designed to provide users with a starting point for navigating the app and accessing its features. It serves as a hub for users to access the various functions and resources of the app, and to get a sense of what the app has to offer.
 
 ### New Student Page
-![Task Detail Page](https://github.com/Medelouali/Library-Management-System/blob/main/src/main/resources/com/example/libraryapp/assets/demo/7-new-student-page-page.png)
+![Task Detail Page](https://github.com/Medelouali/Library-Management-System/blob/main/src/main/resources/com/example/libraryapp/assets/demo/7-new-student-page.png)
 On the new student page, users can register new students in the library system. This page typically includes a form where users can enter the student's personal and contact information, such as their name, address, phone number, and email address. Users may also be able to specify any additional details or requirements related to the student's library account.
 
 Once the form has been completed and submitted, the new student's information will be added to the library system, and the student will be able to check out and reserve books, access other library resources, and perform other actions as permitted by their account.
@@ -67,7 +67,7 @@ Once the form has been completed and submitted, the new student's information wi
 The new student page can typically be accessed by clicking on the "New Student" link in the top navigation bar of the app. This link is usually located in a menu or section of the app that is dedicated to managing students and their accounts.
 
 ### New Book Page
-![Task Detail Page](https://github.com/Medelouali/Library-Management-System/blob/main/src/main/resources/com/example/libraryapp/assets/demo/8-new-book-page-page.png)
+![Task Detail Page](https://github.com/Medelouali/Library-Management-System/blob/main/src/main/resources/com/example/libraryapp/assets/demo/8-new-book-page.png)
 On the new book page, users can add new books to the library's collection by entering the book's details in a form. Once the form has been submitted, the book's information will be added to the library's database and made available for students to check out or reserve. The new book page can typically be accessed by clicking on a "New Book" link or button in the app. Users may need certain permissions to access this page.
 
 ### Transactions Page
