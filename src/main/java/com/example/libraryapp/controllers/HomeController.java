@@ -215,8 +215,11 @@ public class HomeController {
         int privileges = Main.getUser().getPrivileges();
         try{
             switch (privileges){
-                case 1 -> this.switchPage(event, "student-book-view.fxml");
-                case 2, 3 -> this.switchPage(event, "books-view.fxml");
+                case 1 :
+                    this.switchPage(event, "student-book-view.fxml");
+                    break;
+                case 2, 3 : this.switchPage(event, "books-view.fxml");
+
             }
 
         }catch (Exception e){

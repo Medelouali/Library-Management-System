@@ -34,7 +34,7 @@ public class StatisticBookController extends HomeController {
 
     @FXML
     void showAllBooks(ActionEvent event) {
-
+        tablebook.getItems().clear();
         ConnectionDB conDb = new ConnectionDB();
 
         Statement st;

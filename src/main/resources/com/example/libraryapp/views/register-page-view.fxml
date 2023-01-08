@@ -33,7 +33,7 @@
             <PasswordField fx:id="password" prefHeight="30.0" prefWidth="370.0" promptText="Password" />
             <TextField fx:id="cin" prefHeight="30.0" prefWidth="370.0" promptText="Cin" />
             <TextField fx:id="description" prefHeight="30.0" prefWidth="370.0" promptText="Description" />
-            <Button mnemonicParsing="false" onAction="#onRegister" prefHeight="34.0" prefWidth="152.0" text="Register">
+            <Button fx:id="registerId" mnemonicParsing="false" onAction="#onRegister" prefHeight="34.0" prefWidth="152.0" text="Register">
                <VBox.margin>
                   <Insets left="230.0" />
                </VBox.margin>
