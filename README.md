@@ -5,7 +5,7 @@ Our **library management system** app is the perfect solution for libraries look
 
 ### Homepage
 
-![Homepage](/com/example/libraryApp/src/main/resources/com/example/libraryapp/assets/404.jpg)
+![Homepage](https://github.com/Medelouali/Library-Management-System/blob/main/src/main/resources/com/example/libraryapp/assets/demo/Screenshot%20from%202023-01-08%2012-07-21.png)
 
 On the homepage, you can see a list of your tasks, as well as create new ones by clicking the "Add Task" button.
 
